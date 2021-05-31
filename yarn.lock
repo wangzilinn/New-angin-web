@@ -190,6 +190,11 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
+"@popperjs/core@^2.4.4":
+  version "2.9.2"
+  resolved "https://registry.npm.taobao.org/@popperjs/core/download/@popperjs/core-2.9.2.tgz?cache=0&sync_timestamp=1617291042068&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40popperjs%2Fcore%2Fdownload%2F%40popperjs%2Fcore-2.9.2.tgz#adea7b6953cbb34651766b0548468e743c6a2353"
+  integrity sha1-rep7aVPLs0ZRdmsFSEaOdDxqI1M=
+
 "@sentry/core@5.30.0":
   version "5.30.0"
   resolved "https://registry.nlark.com/@sentry/core/download/@sentry/core-5.30.0.tgz#6b203664f69e75106ee8b5a2fe1d717379b331f3"
@@ -263,6 +268,16 @@
   resolved "https://registry.nlark.com/@types/braces/download/@types/braces-3.0.0.tgz?cache=0&sync_timestamp=1621240634477&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fbraces%2Fdownload%2F%40types%2Fbraces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha1-faHA1E/xx+tmCjbsB46mG6frQss=
 
+"@types/js-cookie@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.nlark.com/@types/js-cookie/download/@types/js-cookie-2.2.6.tgz#f1a1cb35aff47bc5cfb05cb0c441ca91e914c26f"
+  integrity sha1-8aHLNa/0e8XPsFywxEHKkekUwm8=
+
+"@types/lodash@^4.14.161":
+  version "4.14.170"
+  resolved "https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.170.tgz#0d67711d4bf7f4ca5147e9091b847479b87925d6"
+  integrity sha1-DWdxHUv39MpRR+kJG4R0ebh5JdY=
+
 "@types/micromatch@^4.0.1":
   version "4.0.1"
   resolved "https://registry.nlark.com/@types/micromatch/download/@types/micromatch-4.0.1.tgz?cache=0&sync_timestamp=1621242091090&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fmicromatch%2Fdownload%2F%40types%2Fmicromatch-4.0.1.tgz#9381449dd659fc3823fd2a4190ceacc985083bc7"
@@ -323,6 +338,11 @@
   dependencies:
     "@vue/compiler-dom" "3.0.11"
     "@vue/shared" "3.0.11"
+
+"@vue/devtools-api@^6.0.0-beta.11":
+  version "6.0.0-beta.12"
+  resolved "https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.12.tgz#693ffc77bfb66b080e5c9576abb5786c85470a32"
+  integrity sha1-aT/8d7+2awgOXJV2q7V4bIVHCjI=
 
 "@vue/reactivity@3.0.11":
   version "3.0.11"
@@ -478,6 +498,18 @@ any-promise@^1.0.0:
   version "1.3.0"
   resolved "https://registry.nlark.com/any-promise/download/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
   integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
+
+async-validator@^3.4.0:
+  version "3.5.2"
+  resolved "https://registry.nlark.com/async-validator/download/async-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
+  integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
+
+axios@^0.21.1:
+  version "0.21.1"
+  resolved "https://registry.nlark.com/axios/download/axios-0.21.1.tgz#22563481962f4d6bde9a76d516ef0e5d3c09b2b8"
+  integrity sha1-IlY0gZYvTWvemnbVFu8OXTwJsrg=
+  dependencies:
+    follow-redirects "^1.10.0"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -648,6 +680,11 @@ csstype@^2.6.8:
   resolved "https://registry.nlark.com/csstype/download/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha1-TPMOuH4dGgBdi2UQ+VKSQT9qHA4=
 
+dayjs@1.x:
+  version "1.10.5"
+  resolved "https://registry.nlark.com/dayjs/download/dayjs-1.10.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdayjs%2Fdownload%2Fdayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
+  integrity sha1-VgDfRUj8JFOz8WPrsqu+llzPuYY=
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npm.taobao.org/de-indent/download/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"
@@ -666,6 +703,20 @@ duplexer2@~0.1.4:
   integrity sha1-ixLauHjA1p4+eJEFFmKjL8a93ME=
   dependencies:
     readable-stream "^2.0.2"
+
+element-plus@^1.0.2-beta.45:
+  version "1.0.2-beta.45"
+  resolved "https://registry.nlark.com/element-plus/download/element-plus-1.0.2-beta.45.tgz?cache=0&sync_timestamp=1622186155789&other_urls=https%3A%2F%2Fregistry.nlark.com%2Felement-plus%2Fdownload%2Felement-plus-1.0.2-beta.45.tgz#d7d84d284ead4f9de5aa7289b9a2af4b7f109a1e"
+  integrity sha1-19hNKE6tT53lqnKJuaKvS38Qmh4=
+  dependencies:
+    "@popperjs/core" "^2.4.4"
+    "@types/lodash" "^4.14.161"
+    async-validator "^3.4.0"
+    dayjs "1.x"
+    lodash "^4.17.20"
+    mitt "^2.1.0"
+    normalize-wheel "^1.0.1"
+    resize-observer-polyfill "^1.5.1"
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -722,6 +773,11 @@ fill-range@^7.0.1:
   integrity sha1-GRmmp8df44ssfHflGYU12prN2kA=
   dependencies:
     to-regex-range "^5.0.1"
+
+follow-redirects@^1.10.0:
+  version "1.14.1"
+  resolved "https://registry.nlark.com/follow-redirects/download/follow-redirects-1.14.1.tgz?cache=0&sync_timestamp=1620555234886&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ffollow-redirects%2Fdownload%2Ffollow-redirects-1.14.1.tgz#d9114ded0a1cfdd334e164e6662ad02bfd91ff43"
+  integrity sha1-2RFN7Qoc/dM04WTmZirQK/2R/0M=
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -924,7 +980,7 @@ lodash.camelcase@^4.3.0:
   resolved "https://registry.nlark.com/lodash.camelcase/download/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
   integrity sha1-soqmKIorn8ZRA1x3EfZathkDMaY=
 
-lodash@^4.17.19:
+lodash@^4.17.19, lodash@^4.17.20:
   version "4.17.21"
   resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.21.tgz?cache=0&sync_timestamp=1613835817439&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
@@ -987,6 +1043,11 @@ minimist@^1.2.0, minimist@^1.2.5:
   resolved "https://registry.npm.taobao.org/minimist/download/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
 
+mitt@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/mitt/download/mitt-2.1.0.tgz#f740577c23176c6205b121b2973514eade1b2230"
+  integrity sha1-90BXfCMXbGIFsSGylzUU6t4bIjA=
+
 "mkdirp@>=0.5 0":
   version "0.5.5"
   resolved "https://registry.nlark.com/mkdirp/download/mkdirp-0.5.5.tgz#d91cefd62d1436ca0f41620e251288d420099def"
@@ -1019,6 +1080,11 @@ node-unique-machine-id@^1.1.0:
   integrity sha1-29k1Haknz8DoWmY6VehkTaOEt0Y=
   dependencies:
     uuid "^3.3.3"
+
+normalize-wheel@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/normalize-wheel/download/normalize-wheel-1.0.1.tgz#aec886affdb045070d856447df62ecf86146ec45"
+  integrity sha1-rsiGr/2wRQcNhWRH32Ls+GFG7EU=
 
 object-assign@^4.0.1:
   version "4.1.1"
@@ -1160,6 +1226,11 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.nlark.com/require-directory/download/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
+
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.nlark.com/resize-observer-polyfill/download/resize-observer-polyfill-1.5.1.tgz?cache=0&sync_timestamp=1621254890078&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fresize-observer-polyfill%2Fdownload%2Fresize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha1-DpAg3T0hAkRY1OvSfiPkAmmBBGQ=
 
 resolve@^1.19.0:
   version "1.20.0"
@@ -1381,6 +1452,13 @@ vue@^3.0.5:
     "@vue/compiler-dom" "3.0.11"
     "@vue/runtime-dom" "3.0.11"
     "@vue/shared" "3.0.11"
+
+vuex@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.nlark.com/vuex/download/vuex-4.0.1.tgz#e83c541d6f31173969efabb2c5d1c465b682887e"
+  integrity sha1-6DxUHW8xFzlp76uyxdHEZbaCiH4=
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
 
 wrap-ansi@^7.0.0:
   version "7.0.0"
