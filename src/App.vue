@@ -1,27 +1,20 @@
+<!--
+ * @Description: 
+ * @Author: Wang Zilin
+ * @Date: 2021-06-01 23:25:30
+ * @LastEditors: Wang Zilin
+ * @LastEditTime: 2021-06-03 22:56:22
+-->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+    <h1>Hello App!</h1>
+    <div id="app">
+        <router-view/>
+    </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-})
+export default {
+  name: 'App'
+}
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
