@@ -1,7 +1,14 @@
+/*
+ * @Description: 
+ * @Author: Wang Zilin
+ * @Date: 2021-06-01 23:25:31
+ * @LastEditors: Wang Zilin
+ * @LastEditTime: 2021-06-03 23:06:58
+ */
 import axios from 'axios'
 import { ElMessageBox} from 'element-plus'
-import {store} from '../store/index'
-import { getToken } from './auth'
+// import {store} from '../store/index'
+// import { getToken } from './auth'
 
 // create an axios instance
 const service = axios.create({
@@ -15,12 +22,12 @@ service.interceptors.request.use(
   config => {
     // do something before request is sent
 
-    if (store.getters.token) {
-      // let each request carry token
-      // ['X-Token'] is a custom headers key
-      // please modify it according to the actual situation
-      config.headers['Authorization'] = getToken()
-    }
+    // if (store.getters.token) {
+    //   // let each request carry token
+    //   // ['X-Token'] is a custom headers key
+    //   // please modify it according to the actual situation
+    // //   config.headers['Authorization'] = getToken()
+    // }
     return config
   },
   error => {
