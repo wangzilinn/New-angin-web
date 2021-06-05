@@ -3,13 +3,15 @@
  * @Author: Wang Zilin
  * @Date: 2021-06-01 23:25:30
  * @LastEditors: Wang Zilin
- * @LastEditTime: 2021-06-03 23:06:21
+ * @LastEditTime: 2021-06-05 23:31:05
  */
 import { createApp } from 'vue'
 import router from './router'
 import ElementPlus from 'element-plus';
-import 'element-plus/lib/theme-chalk/index.css';
 import { store, key } from './store/index'
+
+import 'element-plus/lib/theme-chalk/index.css';
+import "./styles/style.min.css";
 // 导入入口组件
 import App from './App.vue'
 

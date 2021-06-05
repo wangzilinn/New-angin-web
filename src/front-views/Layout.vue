@@ -3,26 +3,24 @@
  * @Author: Wang Zilin
  * @Date: 2021-06-03 22:34:42
  * @LastEditors: Wang Zilin
- * @LastEditTime: 2021-06-03 23:08:36
+ * @LastEditTime: 2021-06-05 23:38:32
 -->
 
 <template>
-    <div>
+  <div>
     <header id="header" class="header bg-white">
       <div class="navbar-container">
         <a href="/" class="navbar-logo">
-          <img src="../assets/layout/logo.png" alt="Het meisje met de parel">
+          <img src="../assets/layout/logo.png" alt="Het meisje met de parel" />
         </a>
         <!--TODO:点击之后再请求-->
-        <el-select
-          v-model="searchArticleModel"
-          size="small"
-        >
+        <el-select v-model="searchArticleModel" size="small">
           <el-option
             v-for="item in categoriesList"
             :key="item.name"
             :label="item.name"
-            :value="item.name">
+            :value="item.name"
+          >
           </el-option>
         </el-select>
         <!--<div class="item-meta-ico bg-ico-book"/>-->
@@ -45,14 +43,26 @@
       </div>
     </header>
     <!-- 这里显示路由界面 -->
-    <router-view/>
+    <router-view />
     <footer id="footer" class="footer bg-white">
       <div class="footer-social">
         <div class="footer-container clearfix">
           <div class="social-list">
-            <a class="social rss" target="blank" href="https://zilinn.wang/">BLOG</a>
-            <a class="social douban" target="blank" href="https://www.douban.com/people/83078029/">DOUBAN</a>
-            <a class="social github" target="blank" href="https://github.com/wangzilinn">GITHUB</a>
+            <a class="social rss" target="blank" href="https://zilinn.wang/"
+              >BLOG</a
+            >
+            <a
+              class="social douban"
+              target="blank"
+              href="https://www.douban.com/people/83078029/"
+              >DOUBAN</a
+            >
+            <a
+              class="social github"
+              target="blank"
+              href="https://github.com/wangzilinn"
+              >GITHUB</a
+            >
           </div>
         </div>
       </div>
@@ -61,28 +71,32 @@
           <div class="meta-item meta-copyright">
             <div class="meta-copyright-info">
               <a href="/" class="info-logo">
-                <img src="../assets/layout/bottom_logo.png" alt="lover">
+                <img src="../assets/layout/bottom_logo.png" alt="lover" />
               </a>
               <div class="info-text">
-                <p id="chakhsu">I work with J<span
-                  style="color: rgb(255, 120, 71);"
-                >&amp;</span><span
-                  style="color: rgb(255, 94, 99);"
-                >4</span><span
-                  style="color: rgb(255, 94, 99);"
-                >U</span><span
-                  style="color: rgb(191, 60, 175);"
-                >+</span><span style="color: rgb(226, 183, 47);">`</span>
+                <p id="chakhsu">
+                  I work with J<span style="color: rgb(255, 120, 71)"
+                    >&amp;</span
+                  ><span style="color: rgb(255, 94, 99)">4</span
+                  ><span style="color: rgb(255, 94, 99)">U</span
+                  ><span style="color: rgb(191, 60, 175)">+</span
+                  ><span style="color: rgb(226, 183, 47)">`</span>
                 </p>
-                <p>Theme is inspired by <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a></p>
+                <p>
+                  Theme is inspired by
+                  <a href="https://github.com/chakhsu/pinghsu" target="_blank"
+                    >Pinghsu</a
+                  >
+                </p>
                 <p>© 2021 <a href="https://zilinn.wang/">Wang zilin</a></p>
-                <p><a href="http://www.beian.miit.gov.cn">蜀ICP备20012505号-1</a>
+                <p>
+                  <a href="http://www.beian.miit.gov.cn">蜀ICP备20012505号-1</a>
                 </p>
               </div>
             </div>
           </div>
           <div class="meta-item meta-posts">
-            <canvas id="github-contribution-map"/>
+            <canvas id="github-contribution-map" />
           </div>
         </div>
       </div>
@@ -91,7 +105,6 @@
 </template>
 
 <style scoped>
-
 .navbar-logo img {
   height: 45px;
 }
@@ -103,18 +116,16 @@
 .info-logo img {
   height: 50px;
 }
-
 </style>
 
 
 <script lang="ts">
-import "../styles/style.min.css";
 import { defineComponent } from 'vue'
 import { getGithubInfo } from '../api/user'
 import { getCategoriesList } from '../api/category'
 import { Category } from '../api/articleType'
 import { mapGetters } from 'vuex'
-import { drawContributions, DataStruct} from 'github-contributions-canvas'
+import { drawContributions } from 'github-contributions-canvas'
 
 export default defineComponent({
   name: 'Layout',
@@ -127,7 +138,7 @@ export default defineComponent({
   data() {
     return {
       categoriesList:[] as Category[],
-      contributionData: {} as DataStruct,
+      contributionData: {},
       showSearch: false,
       searchArticleModel: ''
     }
@@ -141,6 +152,7 @@ export default defineComponent({
   methods: {
     //创建页面时调用
     fetchData() {
+      // 获得所有类型
       getCategoriesList().then(res => {
         console.log("category list")
         console.log(res.data)
@@ -162,30 +174,13 @@ export default defineComponent({
         })
       })
     },
-    findAllCategories(queryString, callback) {
-      console.log('query' + queryString)
-      const categories = this.categoriesList
-      //const results = queryString ? categories.filter(this.createFilter(queryString)) : categories;
-      callback(categories)
-    },
-    createFilter(queryString) {
-      return (queryString) => {
-        return (category.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)
-      }
-    },
-    handleSelectCategory(item) {
-      console.log('select' + item.value)
-      this.$store.dispatch('content/setCategory', item.value)
+    // 选择类型后的回调
+    handleSelectCategory(item:Category) {
+      console.log('select' + item.name)
+      this.$store.dispatch('content/setCategory', item.name)
       //  重新加载index界面
     },
-    handleSearchEnter(item) {
-      if (item === '') {
-        //当输入框为空时,不进行搜索
-        return
-      }
-      this.$store.dispatch('content/setQuery', item)
-      console.log('enter' + item)
-    },
+    // 画页面下方的字符
     initColorfulFooterText() {
       let r = document.getElementById('chakhsu')
 
