@@ -1,8 +1,8 @@
 <template>
   <div class="index-page main-content">
     <div class="post-lists">
-      <!-- <el-row v-if="this.category!== 'All'" type="flex" justify="center">
-        <div v-if="this.currentTag === undefined">
+      <el-row v-if="category!== 'All'" type="flex" justify="center">
+        <div v-if="currentTag === undefined">
           <el-button :key="tag.name" v-for="tag in tagList" @click="handleClickTag(tag)" size="mini">{{tag.name}}
           </el-button>
         </div>
@@ -11,12 +11,12 @@
           <el-button icon="el-icon-delete" size="mini" circle
                      @click="handleDeleteTag"></el-button>
         </div>
-      </el-row> -->
+      </el-row>
       <div class="post-lists-body">
         <div class="post-list-item" v-if="articleList == null || articleList.length === 0">
           <p>别急，服务器正在努力传输</p>
         </div>
-        <!-- <div class="post-list-item" v-else v-for="item in articleList">
+        <div class="post-list-item" v-else v-for="item in articleList">
           <div class="post-list-item-container">
             <div class="item-thumb bg-deepgrey" :style="'background-image:url(' + getCoverUrl(item.cover) + ');'"></div>
             <router-link :to="'/article/' + item.id">
@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
     <div class="lists-navigator clearfix">
@@ -107,30 +107,29 @@
   import "../styles/style.min.css";
   import {getArticlePage} from '../api/article'
   import {getTagList} from "../api/tag";
-  // import {mapGetters} from "vuex";
+  import { mapGetters } from 'vuex'
 
   export default {
     name: "index",
-    // computed: {
-    //   //...是把属性混入当前对象
-    //   ...mapGetters([
-    //     'imgApi',
-    //     'category',
-    //     'query'
-    //   ]),
-    // },
+    computed: {
+        //...是把属性混入当前对象
+        ...mapGetters({
+          category: 'getCategory',
+          query: 'getQuery'
+        }),
+    },
     watch: {
-      // category: function (val, oldVal) {
-      //   //类型页改变,重新配置tag等信息
-      //   console.log("watch category")
-      //   console.log(`new ${val}`)
-      //   console.log(`old ${oldVal}`)
-      //   if (val === undefined) {
-      //     return
-      //   }
-      //   this.resetPageAndQuery()
-      //   this.fetchData()
-      // },
+      category: function (val, oldVal) {
+        //类型页改变,重新配置tag等信息
+        console.log("watch category")
+        console.log(`new ${val}`)
+        console.log(`old ${oldVal}`)
+        if (val === undefined) {
+          return
+        }
+        this.resetPageAndQuery()
+        this.fetchData()
+      },
       query: function (val, oldVal) {
         //layout进行了标题模糊查询
         console.log("watch query")
@@ -147,8 +146,6 @@
     },
     data() {
       return {
-        // TODO:需要被修改为从vuex中 取
-        category: 'All',
         articleList: [],
         tagList: [],
         currentTag: undefined,

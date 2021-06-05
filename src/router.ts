@@ -8,8 +8,9 @@
 
 import {createRouter, createWebHashHistory} from'vue-router'
 
-import frontLayout from './front-views/layout.vue'
-import frontIndex from './front-views/index.vue'
+// 这里不能使用大括号
+import frontLayout from './front-views/Layout.vue'
+import frontIndex from './front-views/Index.vue'
 
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。

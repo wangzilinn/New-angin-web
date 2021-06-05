@@ -14,17 +14,17 @@
           <img src="../assets/layout/logo.png" alt="Het meisje met de parel">
         </a>
         <!--TODO:点击之后再请求-->
-        <!-- @change="handleEnter" :回车时回调-->
-        <!-- <el-autocomplete
-          class="inline-input"
-          suffix-icon="el-icon-search"
+        <el-select
           v-model="searchArticleModel"
-          :fetch-suggestions="this.findAllCategories"
-          placeholder="选择文章分类或标题搜索"
-          @select="this.handleSelectCategory"
-          @change="this.handleSearchEnter"
           size="small"
-        ></el-autocomplete> -->
+        >
+          <el-option
+            v-for="item in categoriesList"
+            :key="item.name"
+            :label="item.name"
+            :value="item.name">
+          </el-option>
+        </el-select>
         <!--<div class="item-meta-ico bg-ico-book"/>-->
         <div class="navbar-menu">
           <!-- name是登陆人的名字 -->
@@ -91,6 +91,7 @@
 </template>
 
 <style scoped>
+
 .navbar-logo img {
   height: 45px;
 }
@@ -111,23 +112,27 @@ import "../styles/style.min.css";
 import { defineComponent } from 'vue'
 import { getGithubInfo } from '../api/user'
 import { getCategoriesList } from '../api/category'
+import {Category} from '../api/articleType'
+import { mapGetters } from 'vuex'
+
 export default defineComponent({
   name: 'Layout',
-//   computed: {
-//     ...mapGetters([
-//       'name'
-//     ])
-//   },
+  computed: {
+    ...mapGetters(
+      {
+        name: 'getUserName'}
+    )
+  },
   data() {
     return {
-      categoriesList: [],
+      categoriesList:[] as Category[],
       contributionData: null,
       showSearch: false,
       searchArticleModel: ''
     }
   },
   created() {
-    // this.fetchData()
+    this.fetchData()
   },
   mounted() {
     this.initColorfulFooterText()
@@ -136,12 +141,14 @@ export default defineComponent({
     //创建页面时调用
     fetchData() {
       getCategoriesList().then(res => {
-        res.data.forEach((item) => {
+        console.log("category list")
+        console.log(res.data)
+        res.data.forEach((item:Category) => {
           //将过来的分类转换为搜索框能够接受的value属性
-          this.categoriesList.push({ 'value': item.name })
+          this.categoriesList.push(item)
         })
         //加一个全部显示的类
-        this.categoriesList.push({ 'value': 'All' })
+        this.categoriesList.push({ id:'',name:'All'})
       })
       getGithubInfo('wangzilinn').then(res => {
         this.contributionData = res.data
@@ -153,12 +160,12 @@ export default defineComponent({
         })
       })
     },
-    // findAllCategories(queryString, callback) {
-    //   console.log('query' + queryString)
-    //   const categories = this.categoriesList
-    //   //const results = queryString ? categories.filter(this.createFilter(queryString)) : categories;
-    //   callback(categories)
-    // },
+    findAllCategories(queryString, callback) {
+      console.log('query' + queryString)
+      const categories = this.categoriesList
+      //const results = queryString ? categories.filter(this.createFilter(queryString)) : categories;
+      callback(categories)
+    },
     createFilter(queryString) {
       return (queryString) => {
         return (category.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0)

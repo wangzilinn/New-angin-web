@@ -12,7 +12,10 @@
 </template>
 
 <script lang="ts">
-export default {
+
+import { defineComponent } from 'vue'
+
+defineComponent({
     metaInfo: {
     // 如果子component中没有定义 metaInfo.title ，会默认使用这个title
     title: 'Angin',
@@ -22,6 +25,6 @@ export default {
     ]
   },
   name: 'App'
-}
+})
 </script>
 
