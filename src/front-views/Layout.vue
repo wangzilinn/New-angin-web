@@ -28,16 +28,16 @@
         <!--<div class="item-meta-ico bg-ico-book"/>-->
         <div class="navbar-menu">
           <!-- name是登陆人的名字 -->
-          <a href="" v-if="name">{{ name }}</a>
-          <a href="/logout" v-if="name">Logout</a>
+          <a href="" v-if="userName">{{ userName }}</a>
+          <a href="/logout" v-if="userName">Logout</a>
           <a href="/login" v-else>Login</a>
           <a href="/about">About</a>
         </div>
         <div class="navbar-mobile-menu" onclick="">
           <span class="icon-menu cross"><span class="middle"></span></span>
           <ul>
-            <a href="" v-if="name">{{ name }}</a>
-            <a href="/logout" v-if="name">Logout</a>
+            <a href="" v-if="userName">{{ userName }}</a>
+            <a href="/logout" v-if="userName">Logout</a>
             <a href="/login" v-else>Login</a>
             <a href="/about">About</a>
           </ul>
@@ -112,21 +112,22 @@ import "../styles/style.min.css";
 import { defineComponent } from 'vue'
 import { getGithubInfo } from '../api/user'
 import { getCategoriesList } from '../api/category'
-import {Category} from '../api/articleType'
+import { Category } from '../api/articleType'
 import { mapGetters } from 'vuex'
+import { drawContributions, DataStruct} from 'github-contributions-canvas'
 
 export default defineComponent({
   name: 'Layout',
   computed: {
     ...mapGetters(
       {
-        name: 'getUserName'}
+        userName: 'getUserName'}
     )
   },
   data() {
     return {
       categoriesList:[] as Category[],
-      contributionData: null,
+      contributionData: {} as DataStruct,
       showSearch: false,
       searchArticleModel: ''
     }
@@ -152,7 +153,8 @@ export default defineComponent({
       })
       getGithubInfo('wangzilinn').then(res => {
         this.contributionData = res.data
-        drawContributions(document.getElementById('github-contribution-map'), {
+        drawContributions(<HTMLCanvasElement>document.getElementById('github-contribution-map'), 
+        {
           data: this.contributionData,
           username: 'wangzilinn',
           themeName: 'standard',

@@ -680,6 +680,11 @@ csstype@^2.6.8:
   resolved "https://registry.nlark.com/csstype/download/csstype-2.6.17.tgz#4cf30eb87e1d1a005d8b6510f95292413f6a1c0e"
   integrity sha1-TPMOuH4dGgBdi2UQ+VKSQT9qHA4=
 
+date-fns@^2.17.0:
+  version "2.22.1"
+  resolved "https://registry.nlark.com/date-fns/download/date-fns-2.22.1.tgz#1e5af959831ebb1d82992bf67b765052d8f0efc4"
+  integrity sha1-Hlr5WYMeux2CmSv2e3ZQUtjw78Q=
+
 dayjs@1.x:
   version "1.10.5"
   resolved "https://registry.nlark.com/dayjs/download/dayjs-1.10.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdayjs%2Fdownload%2Fdayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
@@ -815,6 +820,13 @@ get-caller-file@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npm.taobao.org/get-caller-file/download/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha1-T5RBKoLbMvNuOwuXQfipf+sDH34=
+
+github-contributions-canvas@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.nlark.com/github-contributions-canvas/download/github-contributions-canvas-0.6.0.tgz#c444f1bc2dc952c23f51f21d863a62a76e6e10e5"
+  integrity sha1-xETxvC3JUsI/UfIdhjpip25uEOU=
+  dependencies:
+    date-fns "^2.17.0"
 
 glob-parent@^5.1.0:
   version "5.1.2"
