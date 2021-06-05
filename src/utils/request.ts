@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-06-03 23:06:58
  */
 import axios from 'axios'
-import { ElMessageBox} from 'element-plus'
+import {ElMessageBox} from 'element-plus'
 // import {store} from '../store/index'
 // import { getToken } from './auth'
 
