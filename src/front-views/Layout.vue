@@ -1,5 +1,5 @@
 <!--
- * @Description: 前端框架
+ * @Description: 框架
  * @Author: Wang Zilin
  * @Date: 2021-06-03 22:34:42
  * @LastEditors: Wang Zilin
@@ -27,6 +27,7 @@
         ></el-autocomplete> -->
         <!--<div class="item-meta-ico bg-ico-book"/>-->
         <div class="navbar-menu">
+          <!-- name是登陆人的名字 -->
           <a href="" v-if="name">{{ name }}</a>
           <a href="/logout" v-if="name">Logout</a>
           <a href="/login" v-else>Login</a>
@@ -43,6 +44,7 @@
         </div>
       </div>
     </header>
+    <!-- 这里显示路由界面 -->
     <router-view/>
     <footer id="footer" class="footer bg-white">
       <div class="footer-social">
@@ -128,7 +130,7 @@ export default defineComponent({
     // this.fetchData()
   },
   mounted() {
-    // this.init()
+    this.initColorfulFooterText()
   },
   methods: {
     //创建页面时调用
@@ -175,11 +177,8 @@ export default defineComponent({
       this.$store.dispatch('content/setQuery', item)
       console.log('enter' + item)
     },
-    init() {
+    initColorfulFooterText() {
       let r = document.getElementById('chakhsu')
-      if (r.loaded) {
-        return false
-      }
 
       function t() {
         return b[Math.floor(Math.random() * b.length)]
@@ -189,7 +188,7 @@ export default defineComponent({
         return String.fromCharCode(94 * Math.random() + 33)
       }
 
-      function n(r) {
+      function n(r:number) {
         for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
           var l = document.createElement('span')
           l.textContent = e(), l.style.color = t(), n.appendChild(l)
@@ -209,9 +208,7 @@ export default defineComponent({
         b = ['rgb(110,64,170)', 'rgb(150,61,179)', 'rgb(191,60,175)', 'rgb(228,65,157)', 'rgb(254,75,131)', 'rgb(255,94,99)', 'rgb(255,120,71)', 'rgb(251,150,51)', 'rgb(226,183,47)', 'rgb(198,214,60)', 'rgb(175,240,91)', 'rgb(127,246,88)', 'rgb(82,246,103)', 'rgb(48,239,130)', 'rgb(29,223,163)', 'rgb(26,199,194)', 'rgb(35,171,216)', 'rgb(54,140,225)', 'rgb(76,110,219)', 'rgb(96,84,200)'],
         c = { text: '', prefixP: -s, skillI: 0, skillP: 0, direction: 'forward', delay: a, step: g }
       i()
-      r.loaded = true
     }
-
   }
 })
 </script>

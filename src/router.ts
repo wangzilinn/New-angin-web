@@ -7,13 +7,9 @@
  */
 
 import {createRouter, createWebHashHistory} from'vue-router'
-// import VueRouter from 'vue-router'
-import Layout from './front-views/Layout.vue'
-import App from './App.vue'
-// 1. 定义路由组件.
-// 也可以从其他文件导入
-const Home = { template: '<div><h1>Home</h1></div>' }
-const About = { template: '<div>About</div>' }
+
+import frontLayout from './front-views/layout.vue'
+import frontIndex from './front-views/index.vue'
 
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
@@ -21,7 +17,11 @@ const About = { template: '<div>About</div>' }
  const routes = [
     {
         path: '/',
-        component: Layout,
+        component: frontLayout,
+        children: [{
+          path: '',
+          component: frontIndex,
+        }]
     }
 ]
  
