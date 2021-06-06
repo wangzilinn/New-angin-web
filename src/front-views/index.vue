@@ -125,11 +125,11 @@
   margin-left: 5px;
 }
 </style>
-<script>
+<script lang="ts">
 import { getArticlePage } from "../api/article"
 import { getTagList } from "../api/tag"
 import { Tag } from '../api/articleType'
-import { mapGetters } from "vuex"
+import { createLogger, mapGetters } from "vuex"
 
 export default {
   name: "index",
@@ -170,7 +170,7 @@ export default {
     return {
       articleList: [],
       tagList:[] as Tag[],
-      currentTag: undefined,
+      currentTag: undefined as Tag|undefined,
       //模糊搜索标题用
       currentTitle: undefined,
       currentPage: 1,
@@ -190,18 +190,18 @@ export default {
       this.currentTag = undefined;
       this.currentTitle = undefined;
     },
-    handleClickPage(pageNum) {
+    handleClickPage(pageNum:number) {
       this.currentPage = pageNum;
       this.fetchData();
     },
-    handleClickTag(item) {
+    handleClickTag(item:Tag) {
       console.log("handleClickTag");
       console.log(item);
       this.resetPageAndQuery();
       this.currentTag = item;
       this.fetchData();
     },
-    handleDeleteTag(item) {
+    handleDeleteTag(item:Tag) {
       console.log("handleDeleteTag");
       console.log(item);
       this.resetPageAndQuery();
@@ -209,8 +209,6 @@ export default {
     },
     fetchData() {
       console.log("fetchData");
-      console.log(this.refreshCategory);
-
       let query = [];
       //如果当前是模糊标题查询,则直接查询,不管分类和tag
       if (this.currentTitle !== undefined) {
@@ -238,14 +236,17 @@ export default {
           this.articleList = res.data.elements;
           this.pages = res.data.totalPages;
           this.total = res.data.totalNumber;
+          console.log('articleList')
+          console.log(this.articleList)
         }
       );
     },
-    getCoverUrl(imgId) {
+    getCoverUrl(imgId:string|undefined) {
+      let imgUrl = <string> import.meta.env.VITE_APP_BASE_API + <string> import.meta.env.VITE_IMG_URL
       if (imgId === "" || imgId === undefined) {
-        return this.imgApi + "?sign=" + Math.random(); //获取随机图片
+        return imgUrl + "?sign=" + Math.random(); //获取随机图片
       }
-      return this.imgApi + "/" + imgId;
+      return imgUrl + "/" + imgId;
     },
   },
 };
