@@ -28,17 +28,12 @@
         >
           <p>别急，服务器正在努力传输</p>
         </div>
-        <div class="post-list-item" v-else v-for="item in articleList">
+        <div class="post-list-item" v-else v-for="item in articleList" :key='item.id'>
           <div class="post-list-item-container">
             <div
               class="item-thumb bg-deepgrey"
               :style="'background-image:url(' + getCoverUrl(item.cover) + ');'"
             ></div>
-            <router-link :to="'/article/' + item.id">
-              <div class="item-desc">
-                <p :text="item.content"></p>
-              </div>
-            </router-link>
             <div class="item-slant reverse-slant bg-deepgrey"></div>
             <div class="item-slant"></div>
             <div class="item-label">
@@ -59,8 +54,8 @@
                 <div class="item-meta-cat">
                   <a href="">
                     {{ item.categoryName }}->
-                    <span v-for="tag in item.tagNames">
-                      {{ tag }}
+                    <span v-for="tagName in item.tagNames" :key='tagName'>
+                      {{ tagName }}
                     </span>
                   </a>
                 </div>
@@ -128,8 +123,8 @@
 <script lang="ts">
 import { getArticlePage } from "../api/article"
 import { getTagList } from "../api/tag"
-import { Tag } from '../api/articleType'
-import { createLogger, mapGetters } from "vuex"
+import { Tag, ArticleDigest } from '../api/articleType'
+import { mapGetters } from "vuex"
 
 export default {
   name: "index",
@@ -168,7 +163,7 @@ export default {
   },
   data() {
     return {
-      articleList: [],
+      articleList: [] as ArticleDigest[],
       tagList:[] as Tag[],
       currentTag: undefined as Tag|undefined,
       //模糊搜索标题用
@@ -236,8 +231,6 @@ export default {
           this.articleList = res.data.elements;
           this.pages = res.data.totalPages;
           this.total = res.data.totalNumber;
-          console.log('articleList')
-          console.log(this.articleList)
         }
       );
     },
