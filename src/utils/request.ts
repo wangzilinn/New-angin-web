@@ -5,7 +5,7 @@
  * @LastEditors: Wang Zilin
  * @LastEditTime: 2021-06-03 23:06:58
  */
-import axios from 'axios'
+import axios,  { AxiosRequestConfig, AxiosResponse } from 'axios'
 import {ElMessageBox} from 'element-plus'
 // import {store} from '../store/index'
 // import { getToken } from './auth'
@@ -14,9 +14,10 @@ import {ElMessageBox} from 'element-plus'
 const service = axios.create({
   baseURL: <string> import.meta.env.VITE_APP_BASE_API, // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 20000 // request timeout
+  timeout: 30000 // request timeout
 })
 
+// 请求拦截器
 // request interceptor
 service.interceptors.request.use(
   config => {
@@ -38,6 +39,7 @@ service.interceptors.request.use(
   }
 )
 
+// 响应拦截器
 // response interceptor
 service.interceptors.response.use(
   /**
@@ -50,12 +52,11 @@ service.interceptors.response.use(
    * Here is just an example
    * You can also judge the status by HTTP Status Code
    */
-  response => {
+  (response:AxiosResponse) => {
     const res = response.data
     // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 200) {
       console.log("返回状态码为" + res.code)
-
       // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-user

@@ -131,8 +131,9 @@ export default defineComponent({
   name: 'Layout',
   computed: {
     ...mapGetters(
-    {
-      userName: 'getUserName'}
+      {
+        userName: 'getUserName'
+      }
     )
   },
   data() {

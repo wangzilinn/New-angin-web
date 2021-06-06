@@ -1,7 +1,10 @@
 import request from '../utils/request'
+import { Comment} from '../api/articleType'
+import { Response } from './requestType'
+import { AxiosPromise } from 'axios'
 
 
-export function addComment(data) {
+export function addComment(data: Comment): AxiosPromise<Response<Comment>>{
   return request({
     url: `/api/comment`,
     method: 'post',
@@ -9,7 +12,7 @@ export function addComment(data) {
   })
 }
 
-export function deleteComment(id) {
+export function deleteComment(id: string) {
   return request({
     url: `/api/comment/${id}`,
     method: 'delete'

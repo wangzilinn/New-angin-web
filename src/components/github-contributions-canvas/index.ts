@@ -71,7 +71,7 @@ function getPixelRatio() {
   if (typeof window === "undefined") {
     return 0.8;
   }
-  return window.devicePixelRatio || 0.8;
+  return window.devicePixelRatio * 0.8 || 0.8;
 }
 
 const DATE_FORMAT = "yyyy-MM-dd";
@@ -270,7 +270,6 @@ function drawMetaData(
 }
 
 export function drawContributions(canvas: HTMLCanvasElement, opts: Options) {
-  console.log("sdfsafdsa")
   const { data } = opts;
   let headerOffset = 0;
   if (!opts.skipHeader) {

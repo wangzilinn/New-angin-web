@@ -10,7 +10,8 @@ import {createRouter, createWebHashHistory} from'vue-router'
 
 // 这里不能使用大括号
 import frontLayout from './front-views/Layout.vue'
-import frontIndex from './front-views/Index.vue'
+import frontOverwiew from './front-views/Overview.vue'
+import article from './front-views/Article.vue'
 
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
@@ -21,9 +22,18 @@ import frontIndex from './front-views/Index.vue'
         component: frontLayout,
         children: [{
           path: '',
-          component: frontIndex,
+          component: frontOverwiew,
         }]
-    }
+    },
+    {
+      path: '/article/:id',
+      component: frontLayout,
+      children: [{
+        path: '',
+        component: article,
+      }]
+    },
+
 ]
  
 // 3. 创建路由实例并传递 `routes` 配置

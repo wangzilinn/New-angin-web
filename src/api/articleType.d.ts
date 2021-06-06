@@ -41,3 +41,10 @@ export type Article = {
     content: string
     contentMd: string
 }
+
+export type Comment = {
+    avatar: string | null
+    username: string | null
+    content: string
+    date: string
+}

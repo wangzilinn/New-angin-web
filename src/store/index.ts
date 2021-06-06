@@ -1,11 +1,12 @@
 
 import { InjectionKey } from 'vue'
 import { createStore, Store  } from 'vuex'
+import { Query } from '../api/articleType'
 
 // 这个类型定义必须与下面state()中定义的属性相同
 export interface State {
   category: string,
-  query: string,
+  query: Query,
   userName: string
 }
 
@@ -16,7 +17,7 @@ export const store = createStore<State>({
     return {
       // 搜索文章时使用的参数
       category: 'All',
-      query: '',
+      query: {} as Query,
       userName:'admin'
     }
   },
@@ -24,18 +25,18 @@ export const store = createStore<State>({
     setCategory(state, category:string){
       state.category = category
     },
-    setQuery(state, query:string){
+    setQuery(state, query:Query){
       state.query = query
     }
   },
   getters: {
-    getUserName(state){
+    getUserName(state):string{
       return state.userName
     },
     getCategory(state){
       return state.category
     },
-    getQuery(state){
+    getQuery(state):Query{
       return state.query
     }
   }

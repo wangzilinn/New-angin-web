@@ -127,7 +127,7 @@ import { Tag, ArticleDigest } from '../api/articleType'
 import { mapGetters } from "vuex"
 
 export default {
-  name: "index",
+  name: "overview",
   computed: {
     //...是把属性混入当前对象
     ...mapGetters({
