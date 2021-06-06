@@ -26,3 +26,18 @@ export type ArticleDigest = {
     tagNames: string[]
     title: string
 }
+
+export type Article = {
+    author: string
+    categoryName: string
+    cover: string
+    createTime: string|null
+    editTime: string|null
+    id: string
+    publishTime: string|null
+    state: string
+    tagNames: string[]
+    title: string,
+    content: string
+    contentMd: string
+}

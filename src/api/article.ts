@@ -1,5 +1,5 @@
 import request from '../utils/request'
-import { PageData, Query } from './articleType';
+import { PageData, Query, Article} from './articleType';
 
 //第一个参数是查询的页数据, 第二个是具体的查询参数,格式为:
 //[[条件1:value1],[条件2:value2]]
@@ -33,7 +33,7 @@ export function findArticleById(id:string) {
   })
 }
 
-export function updateArticle(data) {
+export function updateArticle(data:Article) {
   return request({
     url: `/api/article`,
     method: 'put',
@@ -41,7 +41,7 @@ export function updateArticle(data) {
   })
 }
 
-export function addArticle(data) {
+export function addArticle(data:Article) {
   return request({
     url: `/api/article`,
     method: 'post',
