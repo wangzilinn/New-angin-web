@@ -96,7 +96,7 @@
             </div>
           </div>
           <div class="meta-item meta-posts">
-            <canvas id="github-contribution-map" />
+            <canvas id="github-contribution-map"/>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ import { getGithubInfo } from '../api/user'
 import { getCategoriesList } from '../api/category'
 import { Category } from '../api/articleType'
 import { mapGetters } from 'vuex'
-import { drawContributions } from 'github-contributions-canvas'
+import { drawContributions, DataStruct } from '../components/github-contributions-canvas'
 
 export default defineComponent({
   name: 'Layout',
@@ -164,10 +164,13 @@ export default defineComponent({
         this.categoriesList.push({ id:'',name:'All'})
       })
       getGithubInfo('wangzilinn').then(res => {
-        this.contributionData = res.data
+        let contributionData = <DataStruct>res.data
+        let yearsData = contributionData.years
+        // 将原有数据截断为当年数据
+        contributionData.years.splice(1,yearsData.length - 1)
         drawContributions(<HTMLCanvasElement>document.getElementById('github-contribution-map'), 
         {
-          data: this.contributionData,
+          data: contributionData,
           username: 'wangzilinn',
           themeName: 'standard',
           footerText: 'Made by @sallar - github-contributions.now.sh'
