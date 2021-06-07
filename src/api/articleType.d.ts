@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: Wang Zilin
+ * @Date: 2021-06-05 23:04:36
+ * @LastEditors: Wang Zilin
+ * @LastEditTime: 2021-06-07 22:39:32
+ */
 export type PageData = {
     page: number,
     limit: number
@@ -43,6 +50,8 @@ export type Article = {
 }
 
 export type Comment = {
+  articleTitle: string,
+  articleId: string,
     avatar: string | null
     username: string | null
     content: string
