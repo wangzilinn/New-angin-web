@@ -3,7 +3,7 @@
  * @Author: Wang Zilin
  * @Date: 2021-06-03 22:34:42
  * @LastEditors: Wang Zilin
- * @LastEditTime: 2021-06-05 23:38:32
+ * @LastEditTime: 2021-06-07 23:01:23
 -->
 
 <template>
@@ -14,7 +14,7 @@
           <img src="../assets/layout/logo.png" alt="Het meisje met de parel" />
         </a>
         <!--TODO:点击之后再请求-->
-        <el-select v-model="searchArticleModel" size="small">
+        <el-select v-model="search" size="small">
           <el-option
             v-for="item in categoriesList"
             :key="item.name"
@@ -23,6 +23,14 @@
           >
           </el-option>
         </el-select>
+        <el-autocomplete
+          class="inline-input"
+          v-model="search"
+          :fetch-suggestions="handleFocusOnSearch"
+          :select-when-unmatched="true"
+          placeholder="请输入内容"
+          @select="handleSelectCategory"
+        ></el-autocomplete>
         <!--<div class="item-meta-ico bg-ico-book"/>-->
         <div class="navbar-menu">
           <!-- name是登陆人的名字 -->
@@ -96,7 +104,7 @@
             </div>
           </div>
           <div class="meta-item meta-posts">
-            <canvas id="github-contribution-map"/>
+            <canvas id="github-contribution-map" />
           </div>
         </div>
       </div>
@@ -120,103 +128,173 @@
 
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { getGithubInfo } from '../api/user'
-import { getCategoriesList } from '../api/category'
-import { Category } from '../api/articleType'
-import { mapGetters } from 'vuex'
-import { drawContributions, DataStruct } from '../components/github-contributions-canvas'
+import { defineComponent } from "vue";
+import { getGithubInfo } from "../api/user";
+import { getCategoriesList } from "../api/category";
+import { Category } from "../api/articleType";
+import { mapGetters } from "vuex";
+import {
+  drawContributions,
+  DataStruct,
+} from "../components/github-contributions-canvas";
 
 export default defineComponent({
-  name: 'Layout',
+  name: "Layout",
   computed: {
-    ...mapGetters(
-      {
-        userName: 'getUserName'
-      }
-    )
+    ...mapGetters({
+      userName: "getUserName",
+    }),
   },
   data() {
     return {
-      categoriesList:[] as Category[],
+      categoriesList: [] as Category[],
       contributionData: {},
       showSearch: false,
-      searchArticleModel: ''
-    }
+      search: "",
+    };
   },
   created() {
-    this.fetchData()
+    this.fetchData();
   },
   mounted() {
-    this.initColorfulFooterText()
+    this.initColorfulFooterText();
   },
   methods: {
     //创建页面时调用
     fetchData() {
       // 获得所有类型
-      getCategoriesList().then(res => {
-        console.log("category list")
-        console.log(res.data)
-        res.data.forEach((item:Category) => {
+      getCategoriesList().then((res) => {
+        console.log("category list");
+        console.log(res.data);
+        res.data.forEach((item: Category) => {
           //将过来的分类转换为搜索框能够接受的value属性
-          this.categoriesList.push(item)
-        })
+          this.categoriesList.push(item);
+        });
         //加一个全部显示的类
-        this.categoriesList.push({ id:'',name:'All'})
-      })
-      getGithubInfo('wangzilinn').then(res => {
-        let contributionData = <DataStruct>res.data
-        let yearsData = contributionData.years
+        this.categoriesList.push({ id: "", name: "All" });
+      });
+      getGithubInfo("wangzilinn").then((res) => {
+        let contributionData = <DataStruct>res.data;
+        let yearsData = contributionData.years;
         // 将原有数据截断为当年数据
-        contributionData.years.splice(1,yearsData.length - 1)
-        drawContributions(<HTMLCanvasElement>document.getElementById('github-contribution-map'), 
-        {
-          data: contributionData,
-          username: 'wangzilinn',
-          themeName: 'standard',
-          footerText: 'Made by @sallar - github-contributions.now.sh'
-        })
-      })
+        contributionData.years.splice(1, yearsData.length - 1);
+        drawContributions(
+          <HTMLCanvasElement>document.getElementById("github-contribution-map"),
+          {
+            data: contributionData,
+            username: "wangzilinn",
+            themeName: "standard",
+            footerText: "Made by @sallar - github-contributions.now.sh",
+          }
+        );
+      });
+    },
+    handleFocusOnSearch(queryString: string, cb: any) {
+      cb(this.categoriesList);
     },
     // 选择类型后的回调
-    handleSelectCategory(item:Category) {
-      console.log('select' + item.name)
-      this.$store.dispatch('content/setCategory', item.name)
+    handleSelectCategory(item: Category) {
+      console.log("select" + item.name);
+      this.$store.dispatch("content/setCategory", item.name);
       //  重新加载index界面
     },
     // 画页面下方的字符
     initColorfulFooterText() {
-      let r = document.getElementById('chakhsu')
+      let r = document.getElementById("chakhsu");
 
       function t() {
-        return b[Math.floor(Math.random() * b.length)]
+        return b[Math.floor(Math.random() * b.length)];
       }
 
       function e() {
-        return String.fromCharCode(94 * Math.random() + 33)
+        return String.fromCharCode(94 * Math.random() + 33);
       }
 
-      function n(r:number) {
+      function n(r: number) {
         for (var n = document.createDocumentFragment(), i = 0; r > i; i++) {
-          var l = document.createElement('span')
-          l.textContent = e(), l.style.color = t(), n.appendChild(l)
+          var l = document.createElement("span");
+          (l.textContent = e()), (l.style.color = t()), n.appendChild(l);
         }
-        return n
+        return n;
       }
 
       function i() {
-        var t = o[c.skillI]
-        c.step ? c.step-- : (c.step = g, c.prefixP < l.length ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++) : 'forward' === c.direction ? c.skillP < t.length ? (c.text += t[c.skillP], c.skillP++) : c.delay ? c.delay-- : (c.direction = 'backward', c.delay = a) : c.skillP > 0 ? (c.text = c.text.slice(0, -1), c.skillP--) : (c.skillI = (c.skillI + 1) % o.length, c.direction = 'forward')), r.textContent = c.text, r.appendChild(n(c.prefixP < l.length ? Math.min(s, s + c.prefixP) : Math.min(s, t.length - c.skillP))), setTimeout(i, d)
+        var t = o[c.skillI];
+        c.step
+          ? c.step--
+          : ((c.step = g),
+            c.prefixP < l.length
+              ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++)
+              : "forward" === c.direction
+              ? c.skillP < t.length
+                ? ((c.text += t[c.skillP]), c.skillP++)
+                : c.delay
+                ? c.delay--
+                : ((c.direction = "backward"), (c.delay = a))
+              : c.skillP > 0
+              ? ((c.text = c.text.slice(0, -1)), c.skillP--)
+              : ((c.skillI = (c.skillI + 1) % o.length),
+                (c.direction = "forward"))),
+          (r.textContent = c.text),
+          r.appendChild(
+            n(
+              c.prefixP < l.length
+                ? Math.min(s, s + c.prefixP)
+                : Math.min(s, t.length - c.skillP)
+            )
+          ),
+          setTimeout(i, d);
       }
 
-      var l = 'I focus on ',
-        o = ['Embedded-NN', 'NILM', 'Java', 'Dart', 'Vue', 'Spring Boot', 'Spring Cloud'].map(function(r) {
-          return r + '.'
-        }), a = 2, g = 1, s = 5, d = 75,
-        b = ['rgb(110,64,170)', 'rgb(150,61,179)', 'rgb(191,60,175)', 'rgb(228,65,157)', 'rgb(254,75,131)', 'rgb(255,94,99)', 'rgb(255,120,71)', 'rgb(251,150,51)', 'rgb(226,183,47)', 'rgb(198,214,60)', 'rgb(175,240,91)', 'rgb(127,246,88)', 'rgb(82,246,103)', 'rgb(48,239,130)', 'rgb(29,223,163)', 'rgb(26,199,194)', 'rgb(35,171,216)', 'rgb(54,140,225)', 'rgb(76,110,219)', 'rgb(96,84,200)'],
-        c = { text: '', prefixP: -s, skillI: 0, skillP: 0, direction: 'forward', delay: a, step: g }
-      i()
-    }
-  }
-})
+      var l = "I focus on ",
+        o = [
+          "Embedded-NN",
+          "NILM",
+          "Java",
+          "Dart",
+          "Vue",
+          "Spring Boot",
+          "Spring Cloud",
+        ].map(function (r) {
+          return r + ".";
+        }),
+        a = 2,
+        g = 1,
+        s = 5,
+        d = 75,
+        b = [
+          "rgb(110,64,170)",
+          "rgb(150,61,179)",
+          "rgb(191,60,175)",
+          "rgb(228,65,157)",
+          "rgb(254,75,131)",
+          "rgb(255,94,99)",
+          "rgb(255,120,71)",
+          "rgb(251,150,51)",
+          "rgb(226,183,47)",
+          "rgb(198,214,60)",
+          "rgb(175,240,91)",
+          "rgb(127,246,88)",
+          "rgb(82,246,103)",
+          "rgb(48,239,130)",
+          "rgb(29,223,163)",
+          "rgb(26,199,194)",
+          "rgb(35,171,216)",
+          "rgb(54,140,225)",
+          "rgb(76,110,219)",
+          "rgb(96,84,200)",
+        ],
+        c = {
+          text: "",
+          prefixP: -s,
+          skillI: 0,
+          skillP: 0,
+          direction: "forward",
+          delay: a,
+          step: g,
+        };
+      i();
+    },
+  },
+});
 </script>
