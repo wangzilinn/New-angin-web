@@ -15,7 +15,7 @@
 
 import { defineComponent } from 'vue'
 
-defineComponent({
+export default defineComponent({
     metaInfo: {
     // 如果子component中没有定义 metaInfo.title ，会默认使用这个title
     title: 'Angin',

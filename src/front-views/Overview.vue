@@ -121,12 +121,13 @@
 }
 </style>
 <script lang="ts">
+import { defineComponent } from 'vue'
 import { getArticlePage } from "../api/article"
 import { getTagList } from "../api/tag"
 import { Tag, ArticleDigest } from '../api/articleType'
 import { mapGetters } from "vuex"
 
-export default {
+export default defineComponent({
   name: "overview",
   computed: {
     //...是把属性混入当前对象
@@ -242,7 +243,7 @@ export default {
       return imgUrl + "/" + imgId;
     },
   },
-};
+})
 </script>
 
 
