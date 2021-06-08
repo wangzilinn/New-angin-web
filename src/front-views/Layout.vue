@@ -14,16 +14,8 @@
           <img src="../assets/layout/logo.png" alt="Het meisje met de parel" />
         </a>
         <!--TODO:点击之后再请求-->
-        <el-select v-model="search" size="small">
-          <el-option
-            v-for="item in categoriesList"
-            :key="item.name"
-            :label="item.name"
-            :value="item.name"
-          >
-          </el-option>
-        </el-select>
         <el-autocomplete
+         size="small"
           class="inline-input"
           v-model="search"
           :fetch-suggestions="handleFocusOnSearch"
@@ -189,17 +181,34 @@ export default defineComponent({
         );
       });
     },
-    handleFocusOnSearch(queryString: string, cb: any) {
-      cb(this.categoriesList);
+    handleFocusOnSearch(queryString: string, cb: any): void {
+      let allCategories = this.categoriesList.map((origin)=>{return {value:origin.name}})
+      if (queryString == ''){
+        cb(allCategories);
+      }else{
+        // 存在搜索内容,对所有分类进行过滤
+        cb(allCategories.filter((category)=>{return category.value.toLowerCase().includes(queryString)}))
+      }
+      console.log(queryString)
     },
-    // 选择类型后的回调
-    handleSelectCategory(item: Category) {
-      console.log("select" + item.name);
-      this.$store.dispatch("content/setCategory", item.name);
-      //  重新加载index界面
+    // 搜索框的回调(无论是选择类型还是输入内容都会回调)
+    handleSelectCategory(item:{value:string}): void {
+      console.log("select " + item.value);
+      // 检查是否为选择类型:
+      let isCategory = false
+      this.categoriesList.forEach(category => {
+        if(category.name == item.value){
+          isCategory = true
+        }
+      })
+      if(isCategory){
+        this.$store.commit('setCategory', item.value)
+      }else{
+        this.$store.commit('setQuery', item.value)
+      }
     },
     // 画页面下方的字符
-    initColorfulFooterText() {
+    initColorfulFooterText(): void {
       let r = document.getElementById("chakhsu");
 
       function t() {
@@ -220,6 +229,7 @@ export default defineComponent({
 
       function i() {
         var t = o[c.skillI];
+        if (r !== null){
         c.step
           ? c.step--
           : ((c.step = g),
@@ -244,6 +254,7 @@ export default defineComponent({
             )
           ),
           setTimeout(i, d);
+        }
       }
 
       var l = "I focus on ",
