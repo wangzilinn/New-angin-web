@@ -7,7 +7,7 @@ import { Query } from '../api/articleType'
 export interface State {
   category: string,
   query: Query,
-  userName: string
+  userName: string|undefined
 }
 
 export const key: InjectionKey<Store<State>> = Symbol()
@@ -18,7 +18,7 @@ export const store = createStore<State>({
       // 搜索文章时使用的参数
       category: 'All',
       query: {} as Query,
-      userName:'admin'
+      userName:undefined
     }
   },
   mutations:{
@@ -30,7 +30,7 @@ export const store = createStore<State>({
     }
   },
   getters: {
-    getUserName(state):string{
+    getUserName(state):string|undefined{
       return state.userName
     },
     getCategory(state){

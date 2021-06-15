@@ -2,8 +2,8 @@
   <div class="content-index">
     <el-row>
       <el-col :xs="1" :sm="1" :md="6" :lg="6" :xl="6">miao!</el-col>
-      <el-col :xs="22" :sm="22" :md="12" :lg="12" :xl="12"
-        ><article class="main-content page-page">
+      <el-col :xs="22" :sm="22" :md="12" :lg="12" :xl="12">
+        <article class="main-content page-page">
           <div class="post-header">
             <p class="post-tags" v-if="article.tagNames != null">
               <a v-for="tagName in article.tagNames" href="#" :key="tagName">{{

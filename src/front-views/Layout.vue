@@ -23,21 +23,22 @@
           placeholder="请输入内容"
           @select="handleSelectCategory"
         ></el-autocomplete>
-        <!--<div class="item-meta-ico bg-ico-book"/>-->
+        <!-- 电脑时展示: -->
         <div class="navbar-menu">
           <!-- name是登陆人的名字 -->
-          <a href="" v-if="userName">{{ userName }}</a>
-          <a href="/logout" v-if="userName">Logout</a>
-          <a href="/login" v-else>Login</a>
-          <a href="/about">About</a>
+          <router-link to="" v-if="userName">{{ userName }}</router-link>
+          <router-link to="/logout" v-if="userName">Logout</router-link>
+          <router-link to="/login" v-else>Login</router-link>
+          <router-link to="/about">About</router-link>
         </div>
+        <!-- 手机时展示 -->
         <div class="navbar-mobile-menu" onclick="">
           <span class="icon-menu cross"><span class="middle"></span></span>
           <ul>
-            <a href="" v-if="userName">{{ userName }}</a>
-            <a href="/logout" v-if="userName">Logout</a>
-            <a href="/login" v-else>Login</a>
-            <a href="/about">About</a>
+            <router-link to="" v-if="userName">{{ userName }}</router-link>
+            <router-link to="/logout" v-if="userName">Logout</router-link>
+            <router-link to="/login" v-else>Login</router-link>
+            <router-link to="/about">About</router-link>
           </ul>
         </div>
       </div>

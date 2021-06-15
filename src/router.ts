@@ -9,28 +9,35 @@
 import {createRouter, createWebHashHistory} from'vue-router'
 
 // 这里不能使用大括号
-import frontLayout from './front-views/Layout.vue'
-import frontOverwiew from './front-views/Overview.vue'
-import article from './front-views/Article.vue'
+import FrontLayoutView from './front-views/Layout.vue'
+import FrontOverwiewView from './front-views/Overview.vue'
+import ArticleView from './front-views/Article.vue'
+import LoginView from './misc-views/login.vue'
+
 
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
 // 我们后面再讨论嵌套路由。
  const routes = [
     {
+      path: '/login',
+      component: LoginView,
+      hidden: true //?
+    },
+    {
         path: '/',
-        component: frontLayout,
+        component: FrontLayoutView,
         children: [{
           path: '',
-          component: frontOverwiew,
+          component: FrontOverwiewView,
         }]
     },
     {
       path: '/article/:id',
-      component: frontLayout,
+      component: FrontLayoutView,
       children: [{
         path: '',
-        component: article,
+        component: ArticleView,
       }]
     },
 
