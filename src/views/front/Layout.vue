@@ -1,8 +1,8 @@
 <!--
  * @Description: 框架
- * @Author: Wang Zilin
+ * @Author: Zillion Wang
  * @Date: 2021-06-03 22:34:42
- * @LastEditors: Wang Zilin
+ * @LastEditors: Zillion Wang
  * @LastEditTime: 2021-06-07 23:01:23
 -->
 
@@ -11,7 +11,7 @@
     <header id="header" class="header bg-white">
       <div class="navbar-container">
         <a href="/" class="navbar-logo">
-          <img src="../assets/layout/logo.png" alt="Het meisje met de parel" />
+          <img src="../../assets/layout/logo.png" alt="Het meisje met de parel" />
         </a>
         <!--TODO:点击之后再请求-->
         <el-autocomplete
@@ -89,7 +89,7 @@
                     >Pinghsu</a
                   >
                 </p>
-                <p>© 2021 <a href="https://zilinn.wang/">Wang zilin</a></p>
+                <p>© 2021 <a href="https://zilinn.wang/">Zillion Wang</a></p>
                 <p>
                   <a href="http://www.beian.miit.gov.cn">蜀ICP备20012505号-1</a>
                 </p>
@@ -122,14 +122,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { getGithubInfo } from "../api/user";
-import { getCategoriesList } from "../api/category";
-import { Category } from "../api/articleType";
+import { getGithubInfo } from "../../api/user";
+import { getCategoriesList } from "../../api/category";
+import { Category } from "../../api/articleType";
 import { mapGetters } from "vuex";
 import {
   drawContributions,
   DataStruct,
-} from "../components/github-contributions-canvas";
+} from "../../components/github-contributions-canvas";
 
 export default defineComponent({
   name: "Layout",

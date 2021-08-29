@@ -122,9 +122,9 @@
 </style>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { getArticlePage } from "../api/article"
-import { getTagList } from "../api/tag"
-import { Tag, ArticleDigest } from '../api/articleType'
+import { getArticlePage } from "../../../api/article"
+import { getTagList } from "../../../api/tag"
+import { Tag, ArticleDigest } from '../../../api/articleType'
 import { mapGetters } from "vuex"
 
 export default defineComponent({

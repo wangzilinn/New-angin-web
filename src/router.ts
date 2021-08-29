@@ -1,18 +1,18 @@
 /*
  * @Description: router
- * @Author: Wang Zilin
+ * @Author: Wang Zillion
  * @Date: 2021-06-01 23:35:47
- * @LastEditors: Wang Zilin
+ * @LastEditors: Wang Zillion
  * @LastEditTime: 2021-06-03 23:11:30
  */
 
 import {createRouter, createWebHashHistory} from'vue-router'
 
 // 这里不能使用大括号
-import FrontLayoutView from './front-views/Layout.vue'
-import FrontOverwiewView from './front-views/Overview.vue'
-import ArticleView from './front-views/Article.vue'
-import LoginView from './misc-views/login.vue'
+import FrontLayoutView from './views/front/Layout.vue'
+import FrontOverviewView from './views/front/overview/Overview.vue'
+import ArticleView from './views/front/article/Article.vue'
+import LoginView from './views/universal/login.vue'
 
 
 // 2. 定义一些路由
@@ -29,7 +29,7 @@ import LoginView from './misc-views/login.vue'
         component: FrontLayoutView,
         children: [{
           path: '',
-          component: FrontOverwiewView,
+          component: FrontOverviewView,
         }]
     },
     {
@@ -42,7 +42,7 @@ import LoginView from './misc-views/login.vue'
     },
 
 ]
- 
+
 // 3. 创建路由实例并传递 `routes` 配置
 // 你可以在这里输入更多的配置，但我们在这里
 // 暂时保持简单

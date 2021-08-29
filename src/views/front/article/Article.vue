@@ -122,11 +122,11 @@
 
 <script lang='ts'>
 import { defineComponent } from "vue";
-import { addComment, getCommentList } from "../api/comment";
-import { findArticleById } from "../api/article";
+import { addComment, getCommentList } from "../../../api/comment";
+import { findArticleById } from "../../../api/article";
 import { mapGetters } from "vuex";
-import "../styles/xcode.min.css";
-import { Article, Comment } from "../api/articleType";
+import "../../../styles/xcode.min.css";
+import { Article, Comment } from "../../../api/articleType";
 import { ElMessageBox } from "element-plus";
 
 export default defineComponent({

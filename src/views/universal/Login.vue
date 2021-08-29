@@ -49,7 +49,7 @@
     /*background-color: #b8e5f8;*/
     background-size:cover;
     background-position: 50% 80%;
-    background-image: url("../assets/login/background.png");
+    background-image: url(".../assets/login/background.png");
     .login-form {
       position: absolute;
       left: 0;
@@ -98,7 +98,7 @@
       right: 10px;
       top: 7px;
       font-size: 16px;
-      color: $dark_gray;
+      color: #4d5155;
       cursor: pointer;
       user-select: none;
     }
@@ -106,10 +106,10 @@
 </style>
 
 <script lang='ts'>
-  import normal from '../assets/login/stand.png'
-  import blindfold from '../assets/login/close_eyes.png'
-  import greeting from '../assets/login/hello.png'
-  import {signUp} from "../api/user";
+  import normal from '../../assets/login/stand.png'
+  import blindfold from '../../assets/login/close_eyes.png'
+  import greeting from '../../assets/login/hello.png'
+  import {signUp} from "../../api/user";
 
   export default {
     name: 'Login',
