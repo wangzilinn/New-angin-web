@@ -126,7 +126,8 @@ import { addComment, getCommentList } from "../../../api/comment";
 import { findArticleById } from "../../../api/article";
 import { mapGetters } from "vuex";
 import "../../../styles/xcode.min.css";
-import { Article, Comment } from "../../../api/articleType";
+import { Article } from "../../../api/type/Article";
+import { Comment } from "../../../api/type/Comment";
 import { ElMessageBox } from "element-plus";
 
 export default defineComponent({
@@ -174,9 +175,9 @@ export default defineComponent({
 
     fetchCommentData(currentCommentPage: number) {
       getCommentList({ page: currentCommentPage, limit: 4 }, [
-        { key: "id", value: this.$route.params.id },
+        { key: "id", value: <string>this.$route.params.id },
       ]).then((res) => {
-        this.comments = res.data.elements;
+        this.comments = res.data;
         console.log(this.comments);
       });
     },

@@ -124,7 +124,7 @@
 import { defineComponent } from "vue";
 import { getGithubInfo } from "../../api/user";
 import { getCategoriesList } from "../../api/category";
-import { Category } from "../../api/articleType";
+import { Category } from "../../api/type/articleTypeeType";
 import { mapGetters } from "vuex";
 import {
   drawContributions,

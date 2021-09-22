@@ -1,6 +1,6 @@
 import request from '../utils/request'
-import { Comment} from '../api/articleType'
-import { Response } from './requestType'
+import { Comment } from "./type/Comment"
+import { Response, Query, PageQuery } from './type/Request'
 import { AxiosPromise } from 'axios'
 
 
@@ -25,7 +25,7 @@ export function deleteComment(id: string) {
 //[{key:关键字1,value:限制1},{key:关键字2,value:限制2}]
 //如:[{key:"id", value : this.$route.params.id}]
 //当不传入第二个参数时 则为undefined
-export function getCommentList(pageData, query) {
+export function getCommentList(pageQuery: PageQuery, query: Query[]): AxiosPromise<Response<Comment[]>>{
   let added = ``
   if (query !== undefined) {
     query.forEach(function (item){
@@ -33,7 +33,7 @@ export function getCommentList(pageData, query) {
     })
   }
   return request({
-    url: `/api/comment/list?page=${pageData.page}&limit=${pageData.limit}${added}`,
+    url: `/api/comment/list?page=${pageQuery.page}&limit=${pageQuery.limit}${added}`,
     method: 'get',
   })
 }
@@ -43,14 +43,14 @@ export function getCommentList(pageData, query) {
 //  })
 //}
 
-export function getListForAbout(page) {
+export function getListForAbout(page: number): AxiosPromise<Response<Comment[]>>{
   return request({
     url: `/api/comment/listForAbout?page=${page}`,
     method: 'get'
   })
 }
 
-export function getListForLink(page) {
+export function getListForLink(page: number): AxiosPromise<Response<Comment[]>> {
   return request({
     url: `/api/comment/listForLink?page=${page}`,
     method: 'get'
@@ -58,7 +58,7 @@ export function getListForLink(page) {
 }
 
 
-export function findAllComment() {
+export function findAllComment(): AxiosPromise<Response<Comment[]>> {
   return request({
     url: `/api/comment/findAll`,
     method: 'get'

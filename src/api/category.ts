@@ -1,5 +1,5 @@
 import request from '../utils/request'
-import { PageData } from './articleType'
+import { PageQuery } from "./type/Request"
 
 export function getAllCategories() {
   return request({
@@ -11,7 +11,7 @@ export function getAllCategories() {
 //第一个参数是查询的页数据, 第二个是具体的查询参数,格式为:
 //[[条件1:value1],[条件2:value2]]
 //当不传入第二个参数时 则为undefined
-export function getCategoriesList(pageData?:PageData) {
+export function getCategoriesList(pageData?:PageQuery) {
   let added = ''
   if (pageData != null) {
 

@@ -1,7 +1,7 @@
 
 import { InjectionKey } from 'vue'
 import { createStore, Store  } from 'vuex'
-import { Query } from '../api/articleType'
+import { Query } from "../api/type/Request"
 
 // 这个类型定义必须与下面state()中定义的属性相同
 export interface State {
