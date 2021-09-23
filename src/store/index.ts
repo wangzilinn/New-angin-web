@@ -28,7 +28,7 @@ export const store = createStore<State>({
     setQuery(state, query:Query){
       state.query = query
     }
-  },
+  }, 
   getters: {
     getUserName(state):string|undefined{
       return state.userName

@@ -166,7 +166,7 @@ export default defineComponent({
     fetchData() {
       findArticleById(<string>this.$route.params.id).then((res) => {
         console.log("article");
-        console.log(res.data);
+        console.log(res);
         this.article = res.data;
         this.articleLoaded = true;
       });
@@ -177,7 +177,7 @@ export default defineComponent({
       getCommentList({ page: currentCommentPage, limit: 4 }, [
         { key: "id", value: <string>this.$route.params.id },
       ]).then((res) => {
-        this.comments = res.data;
+        this.comments = res.data.elements;
         console.log(this.comments);
       });
     },
@@ -222,7 +222,7 @@ export default defineComponent({
       this.form.articleId = this.article.id;
 
       addComment(this.form).then((res) => {
-        if (res.status === 200) {
+        if (res.code === 200) {
           ElMessageBox.alert("评论成功");
           this.fetchCommentData(this.currentCommentPage);
           this.clearForm();

@@ -1,8 +1,3 @@
-export type Response<T> = {
-  code: number
-  data: T
-};
-
 export type Query = {
   key: string;
   value: string;
