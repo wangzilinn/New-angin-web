@@ -85,7 +85,6 @@
             maxlength="12"
             class="form-control input-control clearfix"
             placeholder="Name (*)"
-            value=""
             required=""
           />
           <input
@@ -93,7 +92,6 @@
             v-model="currentComment.username"
             class="form-control input-control clearfix"
             placeholder="Email (*)"
-            value=""
             required=""
           />
           <textarea
@@ -169,7 +167,7 @@ import { Comment } from "../../../api/type/Comment";
 import { ElMessageBox } from "element-plus";
 import { Page } from "../../../api/type/Response";
 export default {
-  name: "index",
+  name: "about",
   data() {
     return {
       commentPages: {} as Page<Comment>,
@@ -239,7 +237,5 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-@import "~@/styles/style.min.css";
-</style>
+
 

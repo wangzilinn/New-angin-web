@@ -13,6 +13,7 @@ import FrontLayoutView from './views/front/Layout.vue'
 import FrontOverviewView from './views/front/overview/Overview.vue'
 import ArticleView from './views/front/article/Article.vue'
 import LoginView from './views/universal/login.vue'
+import About from './views/front/about/About.vue'
 
 
 // 2. 定义一些路由
@@ -27,10 +28,16 @@ import LoginView from './views/universal/login.vue'
     {
         path: '/',
         component: FrontLayoutView,
-        children: [{
+        children: [
+          {
           path: '',
           component: FrontOverviewView,
-        }]
+        },
+        {
+          path:'about',
+          component: About,
+        }
+      ]
     },
     {
       path: '/article/:id',
@@ -39,7 +46,8 @@ import LoginView from './views/universal/login.vue'
         path: '',
         component: ArticleView,
       }]
-    },
+    }
+
 
 ]
 
