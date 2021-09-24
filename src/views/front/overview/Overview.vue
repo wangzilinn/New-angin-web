@@ -28,7 +28,12 @@
         >
           <p>别急，服务器正在努力传输</p>
         </div>
-        <div class="post-list-item" v-else v-for="item in articleList" :key='item.id'>
+        <div
+          class="post-list-item"
+          v-else
+          v-for="item in articleList"
+          :key="item.id"
+        >
           <div class="post-list-item-container">
             <div
               class="item-thumb bg-deepgrey"
@@ -54,7 +59,7 @@
                 <div class="item-meta-cat">
                   <a href="">
                     {{ item.categoryName }}->
-                    <span v-for="tagName in item.tagNames" :key='tagName'>
+                    <span v-for="tagName in item.tagNames" :key="tagName">
                       {{ tagName }}
                     </span>
                   </a>
@@ -121,11 +126,11 @@
 }
 </style>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { getArticlePage } from "../../../api/article"
-import { getTagList } from "../../../api/tag"
-import { Tag, ArticleDigest } from '../../../api/type/articleTypeeType'
-import { mapGetters } from "vuex"
+import { defineComponent } from "vue";
+import { getArticlePage } from "../../../api/article";
+import { getTagList } from "../../../api/tag";
+import { Tag, ArticleDigest } from "../../../api/type/Article";
+import { mapGetters } from "vuex";
 
 export default defineComponent({
   name: "overview",
@@ -165,8 +170,8 @@ export default defineComponent({
   data() {
     return {
       articleList: [] as ArticleDigest[],
-      tagList:[] as Tag[],
-      currentTag: undefined as Tag|undefined,
+      tagList: [] as Tag[],
+      currentTag: undefined as Tag | undefined,
       //模糊搜索标题用
       currentTitle: undefined,
       currentPage: 1,
@@ -186,18 +191,18 @@ export default defineComponent({
       this.currentTag = undefined;
       this.currentTitle = undefined;
     },
-    handleClickPage(pageNum:number) {
+    handleClickPage(pageNum: number) {
       this.currentPage = pageNum;
       this.fetchData();
     },
-    handleClickTag(item:Tag) {
+    handleClickTag(item: Tag) {
       console.log("handleClickTag");
       console.log(item);
       this.resetPageAndQuery();
       this.currentTag = item;
       this.fetchData();
     },
-    handleDeleteTag(item:Tag) {
+    handleDeleteTag(item: Tag) {
       console.log("handleDeleteTag");
       console.log(item);
       this.resetPageAndQuery();
@@ -235,15 +240,17 @@ export default defineComponent({
         }
       );
     },
-    getCoverUrl(imgId:string|undefined) {
-      let imgUrl = <string> import.meta.env.VITE_APP_BASE_API + <string> import.meta.env.VITE_IMG_URL
+    getCoverUrl(imgId: string | undefined) {
+      let imgUrl =
+        <string>import.meta.env.VITE_APP_BASE_API +
+        <string>import.meta.env.VITE_IMG_URL;
       if (imgId === "" || imgId === undefined) {
         return imgUrl + "?sign=" + Math.random(); //获取随机图片
       }
       return imgUrl + "/" + imgId;
     },
   },
-})
+});
 </script>
 
 

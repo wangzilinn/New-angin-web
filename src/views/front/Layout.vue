@@ -11,17 +11,20 @@
     <header id="header" class="header bg-white">
       <div class="navbar-container">
         <a href="/" class="navbar-logo">
-          <img src="../../assets/layout/logo.png" alt="Het meisje met de parel" />
+          <img
+            src="../../assets/layout/logo.png"
+            alt="Het meisje met de parel"
+          />
         </a>
         <!--TODO:点击之后再请求-->
         <el-autocomplete
-         size="small"
+          size="small"
           class="inline-input"
           v-model="search"
           :fetch-suggestions="handleFocusOnSearch"
           :select-when-unmatched="true"
-          placeholder="请输入内容"
-          @select="handleSelectCategory"
+          placeholder="搜索或选择分类"
+          @select="handleSelectCategoryOrQuery"
         ></el-autocomplete>
         <!-- 电脑时展示: -->
         <div class="navbar-menu">
@@ -72,7 +75,7 @@
           <div class="meta-item meta-copyright">
             <div class="meta-copyright-info">
               <a href="/" class="info-logo">
-                <img src="../assets/layout/bottom_logo.png" alt="lover" />
+                <img src="../../assets/layout/bottom_logo.png" alt="lover" />
               </a>
               <div class="info-text">
                 <p id="chakhsu">
@@ -124,7 +127,7 @@
 import { defineComponent } from "vue";
 import { getGithubInfo } from "../../api/user";
 import { getCategoriesList } from "../../api/category";
-import { Category } from "../../api/type/articleTypeeType";
+import { Category } from "../../api/type/Article";
 import { mapGetters } from "vuex";
 import {
   drawContributions,
@@ -182,31 +185,40 @@ export default defineComponent({
         );
       });
     },
+    // 搜索框中输入内容时,对所有分类进行匹配
     handleFocusOnSearch(queryString: string, cb: any): void {
-      let allCategories = this.categoriesList.map((origin)=>{return {value:origin.name}})
-      if (queryString == ''){
+      let allCategories = this.categoriesList.map((origin) => {
+        return { value: origin.name };
+      });
+      if (queryString == "") {
         cb(allCategories);
-      }else{
+      } else {
         // 存在搜索内容,对所有分类进行过滤
-        cb(allCategories.filter((category)=>{return category.value.toLowerCase().includes(queryString)}))
+        cb(
+          allCategories.filter((category) => {
+            return category.value.toLowerCase().includes(queryString);
+          })
+        );
       }
-      console.log(queryString)
+      console.log(queryString);
     },
     // 搜索框的回调(无论是选择类型还是输入内容都会回调)
-    handleSelectCategory(item:{value:string}): void {
+    handleSelectCategoryOrQuery(item: { value: string }): void {
       console.log("select " + item.value);
       // 检查是否为选择类型:
-      let isCategory = false
-      this.categoriesList.forEach(category => {
-        if(category.name == item.value){
-          isCategory = true
+      let isCategory = false;
+      this.categoriesList.forEach((category) => {
+        if (category.name == item.value) {
+          isCategory = true;
         }
-      })
-      if(isCategory){
-        this.$store.commit('setCategory', item.value)
-      }else{
-        this.$store.commit('setQuery', item.value)
+      });
+      if (isCategory) {
+        this.$store.commit("setCategory", item.value);
+      } else {
+        this.$store.commit("setQuery", item.value);
       }
+      // 如果点击了搜索,则跳转到首页:
+      this.$router.push("/");
     },
     // 画页面下方的字符
     initColorfulFooterText(): void {
@@ -230,31 +242,31 @@ export default defineComponent({
 
       function i() {
         var t = o[c.skillI];
-        if (r !== null){
-        c.step
-          ? c.step--
-          : ((c.step = g),
-            c.prefixP < l.length
-              ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++)
-              : "forward" === c.direction
-              ? c.skillP < t.length
-                ? ((c.text += t[c.skillP]), c.skillP++)
-                : c.delay
-                ? c.delay--
-                : ((c.direction = "backward"), (c.delay = a))
-              : c.skillP > 0
-              ? ((c.text = c.text.slice(0, -1)), c.skillP--)
-              : ((c.skillI = (c.skillI + 1) % o.length),
-                (c.direction = "forward"))),
-          (r.textContent = c.text),
-          r.appendChild(
-            n(
+        if (r !== null) {
+          c.step
+            ? c.step--
+            : ((c.step = g),
               c.prefixP < l.length
-                ? Math.min(s, s + c.prefixP)
-                : Math.min(s, t.length - c.skillP)
-            )
-          ),
-          setTimeout(i, d);
+                ? (c.prefixP >= 0 && (c.text += l[c.prefixP]), c.prefixP++)
+                : "forward" === c.direction
+                ? c.skillP < t.length
+                  ? ((c.text += t[c.skillP]), c.skillP++)
+                  : c.delay
+                  ? c.delay--
+                  : ((c.direction = "backward"), (c.delay = a))
+                : c.skillP > 0
+                ? ((c.text = c.text.slice(0, -1)), c.skillP--)
+                : ((c.skillI = (c.skillI + 1) % o.length),
+                  (c.direction = "forward"))),
+            (r.textContent = c.text),
+            r.appendChild(
+              n(
+                c.prefixP < l.length
+                  ? Math.min(s, s + c.prefixP)
+                  : Math.min(s, t.length - c.skillP)
+              )
+            ),
+            setTimeout(i, d);
         }
       }
 
