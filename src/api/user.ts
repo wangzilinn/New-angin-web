@@ -1,18 +1,30 @@
+import { DataStruct } from '../components/github-contributions-canvas';
 import request from '../utils/request'
+import { UserCredential } from './type/Request'
+import { Response } from './type/Response';
 
-export function user(simpleLoginInfo) {
-  return request({
+// 用户登录
+export function signIn(userCredential: UserCredential): Promise<Response<any>> {
+  return <Promise<any>> request({
     url: '/api/user/signIn',
     method: 'post',
-    data:simpleLoginInfo
+    data:userCredential
   })
 }
 
-export function signUp(simpleLoginInfo) {
-  return request({
-    url: '/api/user/signUp',
+export function kaptcha(){
+  return <Promise<any>> request({
+    url: '/api/kaptcha',
+    method: 'get',
+    responseType: 'arraybuffer'
+  })
+}
+
+export function signUp(userCredential: UserCredential, kaptcha: string): Promise<Response<any>> {
+  return <Promise<any>> request({
+    url: '/api/user/signUp?kaptcha=' + kaptcha,
     method: 'post',
-    simpleLoginInfo
+    data: userCredential
   })
 }
 
@@ -30,16 +42,16 @@ export function logout() {
   })
 }
 
-export function update(data) {
-  return request({
+export function update(userCredential: UserCredential): Promise<Response<any>> {
+  return <Promise<any>> request({
     url: '/api/user',
     method: 'put',
-    data
+    data: userCredential
   })
 }
 
-export function getGithubInfo(username) {
-  return request({
+export function getGithubInfo(username: string): Promise<Response<DataStruct>> {
+  return <Promise<any>> request({
     url:"/api/user/github/" + username,
     method: 'get'
   })
