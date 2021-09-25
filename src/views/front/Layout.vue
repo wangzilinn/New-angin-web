@@ -17,32 +17,23 @@
           />
         </a>
         <!--TODO:点击之后再请求-->
-        <el-autocomplete
-          size="small"
-          class="inline-input"
-          v-model="search"
-          :fetch-suggestions="handleFocusOnSearch"
-          :select-when-unmatched="true"
-          placeholder="搜索或选择分类"
-          @select="handleSelectCategoryOrQuery"
-        ></el-autocomplete>
+        <div class="search">
+          <el-autocomplete
+            size="small"
+            class="inline-input"
+            v-model="search"
+            :fetch-suggestions="handleFocusOnSearch"
+            :select-when-unmatched="true"
+            placeholder="搜索或选择分类"
+            @select="handleSelectCategoryOrQuery"
+          ></el-autocomplete>
+        </div>
         <!-- 电脑时展示: -->
         <div class="navbar-menu">
           <!-- name是登陆人的名字 -->
           <router-link to="" v-if="userName">{{ userName }}</router-link>
-          <router-link to="/logout" v-if="userName">Logout</router-link>
           <router-link to="/login" v-else>Login</router-link>
           <router-link to="/about">About</router-link>
-        </div>
-        <!-- 手机时展示 -->
-        <div class="navbar-mobile-menu" onclick="">
-          <span class="icon-menu cross"><span class="middle"></span></span>
-          <ul>
-            <router-link to="" v-if="userName">{{ userName }}</router-link>
-            <router-link to="/logout" v-if="userName">Logout</router-link>
-            <router-link to="/login" v-else>Login</router-link>
-            <router-link to="/about">About</router-link>
-          </ul>
         </div>
       </div>
     </header>
@@ -119,6 +110,11 @@
 
 .info-logo img {
   height: 50px;
+}
+
+.search {
+  position: relative;
+  right: 5px;
 }
 </style>
 

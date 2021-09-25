@@ -84,14 +84,7 @@
             v-model="currentComment.avatar"
             maxlength="12"
             class="form-control input-control clearfix"
-            placeholder="Name (*)"
-            required=""
-          />
-          <input
-            type="email"
-            v-model="currentComment.username"
-            class="form-control input-control clearfix"
-            placeholder="Email (*)"
+            placeholder="Avator (*)"
             required=""
           />
           <textarea
@@ -162,11 +155,12 @@
 </template>
 
 <script lang='ts'>
+import { defineComponent } from "vue";
 import { getListForAbout, addComment } from "../../../api/comment";
 import { Comment } from "../../../api/type/Comment";
 import { ElMessageBox } from "element-plus";
 import { Page } from "../../../api/type/Response";
-export default {
+export default defineComponent({
   name: "about",
   data() {
     return {
@@ -201,13 +195,6 @@ export default {
         return false;
       }
       if (
-        this.currentComment.username == null ||
-        this.currentComment.username == ""
-      ) {
-        ElMessageBox.alert("请填写邮箱");
-        return false;
-      }
-      if (
         this.currentComment.content == null ||
         this.currentComment.content == ""
       ) {
@@ -215,12 +202,10 @@ export default {
         return false;
       }
 
-      addComment(this.currentComment).then((res) => {
-        if (res.code == 200) {
-          ElMessageBox.confirm("评论成功");
-          this.fetchData(this.current);
-          this.clearForm();
-        }
+      addComment(this.currentComment).then(() => {
+        ElMessageBox.confirm("评论成功");
+        this.fetchData(this.current);
+        this.clearForm();
       });
     },
 
@@ -235,7 +220,7 @@ export default {
       this.currentComment.content = "";
     },
   },
-};
+});
 </script>
 
 

@@ -46,7 +46,7 @@ export function getCommentList(pageQuery: PageQuery, query: Query[]): Promise<Re
 
 export function getListForAbout(page: number): Promise<Response<Page<Comment>>>{
   return <Promise<any>>  request({
-    url: `/api/comment/listForAbout?page=${page}`,
+    url: `/api/comment/list?page=${page}&about=true`,
     method: 'get'
   })
 }

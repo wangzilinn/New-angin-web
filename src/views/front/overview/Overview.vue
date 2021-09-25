@@ -38,6 +38,7 @@
             <div
               class="item-thumb bg-deepgrey"
               :style="'background-image:url(' + getCoverUrl(item.cover) + ');'"
+              v-on:click="handleClickArticleImg(item)"
             ></div>
             <div class="item-slant reverse-slant bg-deepgrey"></div>
             <div class="item-slant"></div>
@@ -72,15 +73,6 @@
     </div>
     <div class="lists-navigator clearfix">
       <ol class="page-navigator">
-        <!--<li v-if="currentPage > 1" class="prev">-->
-        <!--  <el-button class="page" @click="handleClickPage(currentPage -1 )">←</el-button>-->
-        <!--</li>-->
-        <!--<li v-for="i in pages" :class="currentPage === i ? 'current' : ''">-->
-        <!--  <el-button class="page" @click="handleClickPage(i)">{{i}}</el-button>-->
-        <!--</li>-->
-        <!--<li v-if="currentPage < pages" class="next">-->
-        <!--  <el-button class="page" @click="handleClickPage(currentPage + 1 )">→</el-button>-->
-        <!--</li>-->
         <el-pagination
           :current-page="currentPage"
           :total="total"
@@ -184,6 +176,15 @@ export default defineComponent({
     this.fetchData();
   },
   methods: {
+    // 点击文章的图片
+    handleClickArticleImg(articleDigest: ArticleDigest) {
+      // 如果不是名画,则直接跳转
+      if (articleDigest.cover !== undefined && articleDigest.cover !== "") {
+        this.$router.push("/article/" + articleDigest.id);
+      } else {
+        // 如果是名画
+      }
+    },
     resetPageAndQuery() {
       this.currentPage = 1;
       this.pages = 1;

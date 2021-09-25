@@ -20,9 +20,9 @@ export function kaptcha(){
   })
 }
 
-export function signUp(userCredential: UserCredential, kaptcha: string): Promise<Response<any>> {
+export function signUp(userCredential: UserCredential, kaptcha: string, token: string): Promise<Response<any>> {
   return <Promise<any>> request({
-    url: '/api/user/signUp?kaptcha=' + kaptcha,
+    url: '/api/user/signUp?kaptcha=' + kaptcha + "&token=" + token,
     method: 'post',
     data: userCredential
   })

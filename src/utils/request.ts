@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-06-03 23:06:58
  */
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
-import { ElMessageBox } from "element-plus";
+import {Response } from '../api/type/Response';
 // import {store} from '../store/index'
 // import { getToken } from './auth'
 
@@ -39,6 +39,8 @@ service.interceptors.request.use(
   }
 );
 
+service.defaults.withCredentials = true;
+
 // 响应拦截器
 // response interceptor
 service.interceptors.response.use(
@@ -52,33 +54,19 @@ service.interceptors.response.use(
    * Here is just an example
    * You can also judge the status by HTTP Status Code
    */
-  (response) => {
+  // 如果http协议的状态码为200,则到这里:
+  (response:AxiosResponse<any>) => {
     const res = response.data;
-    // if the custom code is not 20000, it is judged as an error.
-    if (res.code !== 200) {
+    // 这里返回的是自定义的状态码
+    if (res.code !== undefined && res.code !== 200) {
       console.log("返回状态码为" + res.code);
-      // 50008: Illegal token; 50012: Other clients logged in; 50014: Token expired;
-      if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
-        // to re-user
-        ElMessageBox.confirm(
-          "You have been logged out, you can cancel to stay on this page, or log in again",
-          "Confirm logout",
-          {
-            confirmButtonText: "Re-Login",
-            cancelButtonText: "Cancel",
-            type: "warning",
-          }
-        ).then(() => {
-          // store.dispatch('user/resetToken').then(() => {
-          //   location.reload()
-          // })
-        });
-      }
-      return res;
+      console.log("错误信息为" + res.msg);
+      return Promise.reject(res);
     } else {
       return res;
     }
   },
+  // 如果http协议的状态码不为200,则到这里
   (error) => {
     console.log("request.js error" + error); // for debug
     return Promise.reject(error);

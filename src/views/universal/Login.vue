@@ -162,6 +162,7 @@ export default {
       // 验证码显示指示变量
       kaptchaVisible: false,
       kaptcha: "",
+      token: "",
     };
   },
   watch: {
@@ -205,14 +206,23 @@ export default {
     handleSignUpWithoutKaptcha() {
       this.loading = true;
       kaptcha().then((res) => {
+        // 获得隐藏在验证码图片中的token:
+        let token = new Uint8Array(res.slice(0, 4));
+        console.log(token);
+        for (var i = 0; i < token.length; i++) {
+          this.token += String.fromCharCode(token[i]);
+        }
+        // 获得验证码数据:
+        let kaptchaData = res.slice(4);
         this.kaptcha =
           "data:image/png;base64," +
           btoa(
-            new Uint8Array(res).reduce(
+            new Uint8Array(kaptchaData).reduce(
               (data, byte) => data + String.fromCharCode(byte),
               ""
             )
           );
+        // 显示弹窗:
         this.kaptchaVisible = true;
         this.loading = false;
       });
@@ -220,13 +230,17 @@ export default {
     // 执行注册过程
     handleSignUp() {
       this.loading = true;
-      signUp(this.userCredential, this.userCredential.kaptcha)
+      signUp(this.userCredential, this.userCredential.kaptcha, this.token)
         .then(() => {
           ElMessageBox.confirm("注册成功, 请按照注册的用户名和密码登录");
-          this.loading = false;
         })
-        .catch(() => {
+        .catch((res) => {
+          ElMessageBox.alert(res.msg);
+        })
+        .finally(() => {
           this.loading = false;
+          this.kaptchaVisible = false;
+          this.token = "";
         });
     },
   },

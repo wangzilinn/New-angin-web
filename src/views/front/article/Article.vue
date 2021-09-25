@@ -1,8 +1,8 @@
 <template>
   <div class="content-index">
     <el-row>
-      <el-col :xs="1" :sm="1" :md="6" :lg="6" :xl="6">miao!</el-col>
-      <el-col :xs="22" :sm="22" :md="12" :lg="12" :xl="12">
+      <el-col :xs="0" :sm="0" :md="6" :lg="6" :xl="6">miao!</el-col>
+      <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
         <article class="main-content page-page">
           <div class="post-header">
             <p class="post-tags" v-if="article.tagNames != null">
@@ -33,7 +33,7 @@
           </div>
         </article></el-col
       >
-      <el-col :xs="1" :sm="1" :md="6" :lg="6" :xl="6">
+      <el-col :xs="0" :sm="0" :md="6" :lg="6" :xl="6">
         <div
           id="directory-content"
           class="
@@ -46,7 +46,7 @@
         <!--        <el-backtop id='test' target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>-->
       </el-col>
       <div @click="floatMenu" id="floatMenu">
-        <img src="../assets/rocket.svg" style="width: 36px" />
+        <img src="../../../assets/rocket.svg" style="width: 36px" />
       </div>
     </el-row>
     <div id="respond-post-334" class="comment-container">
