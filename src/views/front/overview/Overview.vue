@@ -1,6 +1,10 @@
 <template>
   <div class="index-page main-content">
-    <div class="post-lists">
+    <div
+      class="post-lists"
+      v-loading="loading"
+      element-loading-text="Just a moment, server is fetching paintings"
+    >
       <el-row v-if="category !== 'All'" type="flex" justify="center">
         <div v-if="currentTag === undefined">
           <el-button
@@ -21,12 +25,27 @@
           ></el-button>
         </div>
       </el-row>
-      <div class="post-lists-body">
-        <div
-          class="post-list-item"
-          v-if="articleList == null || articleList.length === 0"
-        >
-          <p>别急，服务器正在努力传输</p>
+      <div class="post-lists-body" style="text-align: center">
+        <div v-if="articleList == null || articleList.length === 0">
+          <p>Do not go gentle into that good night,</p>
+          <p>Old age should burn and rave at close of day;</p>
+          <p>Rage, rage against the dying of the light.</p>
+          <p>Though wise men at their end know dark is right,</p>
+          <p>Because their words had forked no lightning they</p>
+          <p>Do not go gentle into that good night.</p>
+          <p>Good men, the last wave by, crying how bright</p>
+          <p>Their frail deeds might have danced in a green bay,</p>
+          <p>Rage, rage against the dying of the light.</p>
+          <p>Wild men who caught and sang the sun in flight,</p>
+          <p>And learn, too late, they grieved it on its way,</p>
+          <p>Do not go gentle into that good night.</p>
+          <p>Grave men, near death, who see with blinding sight</p>
+          <p>Blind eyes could blaze like meteors and be gay,</p>
+          <p>Rage, rage against the dying of the light.</p>
+          <p>And you, my father, there on the sad height,</p>
+          <p>Curse, bless me now with your fierce tears, I pray.</p>
+          <p>Do not go gentle into that good night.</p>
+          <p>Rage, rage against the dying of the light.</p>
         </div>
         <div
           class="post-list-item"
@@ -37,7 +56,7 @@
           <div class="post-list-item-container">
             <div
               class="item-thumb bg-deepgrey"
-              :style="'background-image:url(' + getCoverUrl(item.cover) + ');'"
+              :style="getCoverUrlStyle(item)"
               v-on:click="handleClickArticleImg(item)"
             ></div>
             <div class="item-slant reverse-slant bg-deepgrey"></div>
@@ -50,13 +69,6 @@
                 ></router-link>
               </div>
               <div class="item-meta clearfix">
-                <div
-                  class="item-meta-ico bg-ico-code"
-                  style="
-                    background: url(/bg-ico.png) no-repeat;
-                    background-size: 40px auto;
-                  "
-                ></div>
                 <div class="item-meta-cat">
                   <a href="">
                     {{ item.categoryName }}->
@@ -71,6 +83,25 @@
         </div>
       </div>
     </div>
+    <!-- 点击画作后的弹出框 -->
+    <el-dialog
+      v-model="showPaintingDetail"
+      title="Painting Detail"
+      :width="checkIfMobile() ? `100%` : `50%`"
+    >
+      <div style="font-size: 2em; text-align: center">
+        {{ currentPainting.title }}
+      </div>
+      <div style="text-align: center">Artist: {{ currentPainting.artist }}</div>
+      <img :src="getPaintingUrl(currentPainting.id)" style="width: 100%" />
+      <div>Label: {{ currentPainting.label }}</div>
+      <div>
+        Detail URL:
+        <a :href="currentPainting.detail_url">
+          {{ currentPainting.detail_url }}
+        </a>
+      </div>
+    </el-dialog>
     <div class="lists-navigator clearfix">
       <ol class="page-navigator">
         <el-pagination
@@ -120,9 +151,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { getArticlePage } from "../../../api/article";
+import { getPaintingDetailById } from "../../../api/painting";
 import { getTagList } from "../../../api/tag";
 import { Tag, ArticleDigest } from "../../../api/type/Article";
 import { mapGetters } from "vuex";
+import { Painting } from "../../../api/type/Painting";
 
 export default defineComponent({
   name: "overview",
@@ -169,20 +202,29 @@ export default defineComponent({
       currentPage: 1,
       pages: 1,
       total: 1,
+      showPaintingDetail: false,
+      currentPainting: {} as Painting,
+      isMobile: false,
+      loading: true,
     };
   },
   created() {
     console.log("created");
     this.fetchData();
+    this.checkIfMobile();
   },
   methods: {
     // 点击文章的图片
     handleClickArticleImg(articleDigest: ArticleDigest) {
       // 如果不是名画,则直接跳转
-      if (articleDigest.cover !== undefined && articleDigest.cover !== "") {
+      if (!articleDigest.isPaintingCover) {
         this.$router.push("/article/" + articleDigest.id);
       } else {
-        // 如果是名画
+        this.showPaintingDetail = true;
+        getPaintingDetailById(articleDigest.cover).then((res) => {
+          this.currentPainting = res.data;
+          console.log(this.currentPainting.content);
+        });
       }
     },
     resetPageAndQuery() {
@@ -211,6 +253,7 @@ export default defineComponent({
     },
     fetchData() {
       console.log("fetchData");
+      this.loading = true;
       let query = [];
       //如果当前是模糊标题查询,则直接查询,不管分类和tag
       if (this.currentTitle !== undefined) {
@@ -238,20 +281,48 @@ export default defineComponent({
           this.articleList = res.data.elements;
           this.pages = res.data.totalPages;
           this.total = res.data.totalNumber;
+          this.loading = false;
         }
       );
     },
-    getCoverUrl(imgId: string | undefined) {
+    getCoverUrlStyle(articleDigest: ArticleDigest) {
       let imgUrl =
         <string>import.meta.env.VITE_APP_BASE_API +
         <string>import.meta.env.VITE_IMG_URL;
-      if (imgId === "" || imgId === undefined) {
-        return imgUrl + "?sign=" + Math.random(); //获取随机图片
+      if (articleDigest.isPaintingCover) {
+        return (
+          "background-image:url(" +
+          imgUrl +
+          "/painting/" +
+          articleDigest.cover +
+          ");"
+        );
+      } else {
+        return (
+          "background-image:url(" + imgUrl + "/" + articleDigest.cover + ");"
+        );
       }
-      return imgUrl + "/" + imgId;
+    },
+    getPaintingUrl(id: string) {
+      let imgUrl =
+        <string>import.meta.env.VITE_APP_BASE_API +
+        <string>import.meta.env.VITE_IMG_URL;
+      return imgUrl + "/painting/" + id + "?zoom=false";
+    },
+    checkIfMobile() {
+      const flag = navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+
+      if (flag) {
+        this.isMobile = true;
+        return true;
+      } else {
+        this.isMobile = false;
+        return false;
+      }
     },
   },
 });
 </script>
-
 

@@ -10,31 +10,35 @@
   <div>
     <header id="header" class="header bg-white">
       <div class="navbar-container">
-        <a href="/" class="navbar-logo">
-          <img
-            src="../../assets/layout/logo.png"
-            alt="Het meisje met de parel"
-          />
-        </a>
-        <!--TODO:点击之后再请求-->
-        <div class="search">
-          <el-autocomplete
-            size="small"
-            class="inline-input"
-            v-model="search"
-            :fetch-suggestions="handleFocusOnSearch"
-            :select-when-unmatched="true"
-            placeholder="搜索或选择分类"
-            @select="handleSelectCategoryOrQuery"
-          ></el-autocomplete>
-        </div>
-        <!-- 电脑时展示: -->
-        <div class="navbar-menu">
-          <!-- name是登陆人的名字 -->
-          <router-link to="" v-if="userName">{{ userName }}</router-link>
-          <router-link to="/login" v-else>Login</router-link>
-          <router-link to="/about">About</router-link>
-        </div>
+        <el-row :gutter="20" justify="center">
+          <el-col :span="6">
+            <a href="/" class="navbar-logo">
+              <img
+                src="../../assets/layout/logo.png"
+                alt="Het meisje met de parel"
+              />
+            </a>
+          </el-col>
+          <el-col :span="15">
+            <el-autocomplete
+              size="small"
+              class="inline-input"
+              v-model="search"
+              :fetch-suggestions="handleFocusOnSearch"
+              :select-when-unmatched="true"
+              placeholder="搜索或选择分类"
+              @select="handleSelectCategoryOrQuery"
+            ></el-autocomplete>
+          </el-col>
+          <el-col :span="3">
+            <div class="navbar-menu">
+              <!-- name是登陆人的名字 -->
+              <router-link to="" v-if="userName">{{ userName }}</router-link>
+              <router-link to="/login" v-else>Login</router-link>
+              <router-link to="/about">About</router-link>
+            </div></el-col
+          >
+        </el-row>
       </div>
     </header>
     <!-- 这里显示路由界面 -->
@@ -102,6 +106,7 @@
 <style scoped>
 .navbar-logo img {
   height: 45px;
+  float: right;
 }
 
 .navbar-logo {
@@ -110,11 +115,6 @@
 
 .info-logo img {
   height: 50px;
-}
-
-.search {
-  position: relative;
-  right: 5px;
 }
 </style>
 

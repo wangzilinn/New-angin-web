@@ -17,6 +17,7 @@ export type ArticleDigest = {
   state: string;
   tagNames: string[];
   title: string;
+  isPaintingCover: boolean;
 };
 
 export type Article = {

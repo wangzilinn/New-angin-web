@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-06-03 23:11:30
  */
 
-import {createRouter, createWebHashHistory} from'vue-router'
+import {createRouter, createWebHistory} from'vue-router'
 
 // 这里不能使用大括号
 import FrontLayoutView from './views/front/Layout.vue'
@@ -48,7 +48,6 @@ import About from './views/front/about/About.vue'
       }]
     }
 
-
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置
@@ -56,7 +55,7 @@ import About from './views/front/about/About.vue'
 // 暂时保持简单
 const router = createRouter({
   // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes, // `routes: routes` 的缩写
 })
 

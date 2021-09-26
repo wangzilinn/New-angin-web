@@ -4,25 +4,17 @@
       <div class="post-header">
         <h1 class="post-title" itemprop="name headline">About</h1>
         <div class="post-data">
-          <time datetime="2020-05-14 23:08" itemprop="datePublished"
-            >Published on 5 28, 2020</time
-          >
+          <time itemprop="datePublished">Published on 9 26, 2021</time>
         </div>
       </div>
       <div id="post-content" class="post-content">
         <h3>Hello</h3>
-        <p>我是王子林, 四川大学计算机学院硕士研究生</p>
+        <p>我是王子林(Zillion Wang), 四川大学计算机学院硕士研究生</p>
         <p>
           喜欢古典音乐,喜欢猫咪,<strong
-            >超级喜欢自己的女朋友,我们在一起已经{{ togetherDays }}天啦!</strong
+            >很爱自己的女朋友,我们在一起已经{{ togetherDays }}天啦!</strong
           >
         </p>
-        <p>
-          本科阶段一直在嵌入式的坑里面挣扎, 忙于各种比赛,
-          研究生阶段转向了上层应用, 发现又是一个大坑
-        </p>
-        <p>目前我的研究方向是NILM, 期望能发好的论文出来</p>
-        <p>还在涉猎一个小方向, 嵌入式神经网络, 感觉可以做出很有意思的应用</p>
         <h3>关于Angin Blog</h3>
         <p>
           Angin是自己和女朋友名字的拼音每一位都进行与运算后,
@@ -34,13 +26,13 @@
           >获得的灵感, 从头开始学Vue, 一点一点搭建而成的
         </p>
         <p>前端是Vue, 后端是Spring全家桶</p>
-        <P
-          >首页显示的图片是从<a href="https://artuk.org/">ArtUK</a
+        <p>
+          首页显示的图片是从<a href="https://artuk.org/">ArtUK</a
           >中爬取的的4661张图片中随机选择的, 爬虫代码见<a
             href="https://github.com/wangzilinn/Angin-backend"
             >github</a
-          ></P
-        >
+          >
+        </p>
         <p>
           首页下方显示的github
           map使用了修改后的github-contributions-canvas,其源码见<a
@@ -48,30 +40,40 @@
             >github</a
           >
         </p>
-        <p>
-          由于将来很有可能从事后端工作, 本着学习的目的,
-          后端的框架用的会多一些,包括但不限于
-        </p>
+        <h3>主要技术栈</h3>
         <ul>
-          <li>spring boot</li>
-          <li>spring security</li>
-          <li>spring cloud</li>
-          <li>mybatis plus</li>
-          <li>Feign</li>
+          <li>Java,C</li>
+          <li>Spring boot</li>
           <li>MySQL</li>
           <li>MongoDB</li>
-          <li>jsr303校验</li>
+        </ul>
+        <h3>经历</h3>
+        <ul>
+          <li>阿里巴巴淘宝(中国)有限公司 用户增长(实习)</li>
+        </ul>
+        <h3>学术</h3>
+        <p>
+          本科阶段一直在嵌入式的坑里面挣扎, 忙于各种比赛, 研究生阶段转向了Java,
+          目前很快乐
+        </p>
+        <p>目前我的研究方向是NILM和工业互联网安全</p>
+        <ul>
+          <li>
+            Wang, Wei, <strong>Zilin Wang</strong>(contributed equally), Yanru
+            Chen, Min Guo, Zhengyu Chen, Yi Niu, Huangeng Liu, and Liangyin
+            Chen. "Bats: An Appliance Safety Hazards Factors Detection Algorithm
+            with an Improved Nonintrusive Load Disaggregation Method." Energies
+            14, no. 12 (2021): 3547.
+          </li>
         </ul>
         <h3>联系</h3>
-        <p>
-          以下是我的github, 虽然技术很菜, 但是也做了一些我觉得很有意思的东西
-        </p>
         <ul>
           <li>
             <p>
               <a href="https://github.com/wangzilinn" target="_blank">Github</a>
             </p>
           </li>
+          <li>Email: wangzilinn@gmail.com</li>
         </ul>
       </div>
     </article>
@@ -103,13 +105,26 @@
           >
             <div class="comment-view" onclick="">
               <div class="comment-header">
-                <img class="avatar" src="/user.png" width="80" height="80" />
-                <span class="comment-author">
+                <span
+                  v-if="comment.username"
+                  class="comment-author"
+                  style="margin: 0px"
+                >
+                  Registered user:
                   <a
                     :href="comment.username"
                     target="_blank"
                     rel="external nofollow"
                     >{{ comment.username }}</a
+                  >
+                </span>
+                <span v-else class="comment-author" style="margin: 0px">
+                  Avator:
+                  <a
+                    :href="comment.avatar"
+                    target="_blank"
+                    rel="external nofollow"
+                    >{{ comment.avatar }}</a
                   >
                 </span>
               </div>
