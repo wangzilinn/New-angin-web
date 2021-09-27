@@ -12,12 +12,12 @@
       <div class="navbar-container">
         <el-row :gutter="20" justify="center">
           <el-col :span="6">
-            <a href="/" class="navbar-logo">
+            <router-link class="navbar-logo" to="/">
               <img
                 src="../../assets/layout/logo.png"
                 alt="Het meisje met de parel"
               />
-            </a>
+            </router-link>
           </el-col>
           <el-col :span="15">
             <el-autocomplete

@@ -34,16 +34,18 @@
         </article></el-col
       >
       <el-col :xs="0" :sm="0" :md="6" :lg="6" :xl="6">
-        <div
-          id="directory-content"
-          class="
-            directory-content
-            initial
-            headroom--not-bottom headroom--not-top
-          "
-        />
-        <div id="directory"></div>
-        <!--        <el-backtop id='test' target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>-->
+        <el-scrollbar style="height: 100%">
+          <div
+            id="directory-content"
+            class="
+              directory-content
+              initial
+              headroom--not-bottom headroom--not-top
+            "
+          />
+          <div id="directory"></div>
+          <!--        <el-backtop id='test' target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>-->
+        </el-scrollbar>
       </el-col>
       <div @click="floatMenu" id="floatMenu">
         <img src="../../../assets/rocket.svg" style="width: 36px" />
@@ -68,7 +70,12 @@
           >
             <el-card>
               <div class="comment-header">
-                <img class="avatar" src="/user.png" width="80" height="80" />
+                <img
+                  class="avatar"
+                  src="../../../assets/user/user_avator.svg"
+                  width="80"
+                  height="80"
+                />
                 <span class="comment-author">
                   <span v-if="comment.username">{{ comment.username }}</span>
                   <span v-else>匿名用户: {{ comment.avatar }}</span>

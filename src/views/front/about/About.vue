@@ -97,35 +97,24 @@
           ></textarea>
           <button type="button" class="submit" @click="submit">SUBMIT</button>
         </form>
-        <ol v-if="commentPages.elements != null" class="comment-list">
-          <li
-            v-for="comment in commentPages.elements"
-            :key="comment.username"
-            class="comment-body comment-parent comment-even"
+        <el-timeline>
+          <el-timeline-item
+            v-for="(comment, index) in commentPages.elements"
+            :key="index"
+            :timestamp="comment.date"
+            placement="top"
           >
-            <div class="comment-view" onclick="">
+            <el-card>
               <div class="comment-header">
-                <span
-                  v-if="comment.username"
-                  class="comment-author"
-                  style="margin: 0px"
-                >
-                  Registered user:
-                  <a
-                    :href="comment.username"
-                    target="_blank"
-                    rel="external nofollow"
-                    >{{ comment.username }}</a
-                  >
-                </span>
-                <span v-else class="comment-author" style="margin: 0px">
-                  Avator:
-                  <a
-                    :href="comment.avatar"
-                    target="_blank"
-                    rel="external nofollow"
-                    >{{ comment.avatar }}</a
-                  >
+                <img
+                  class="avatar"
+                  src="../../../assets/user/user_avator.svg"
+                  width="80"
+                  height="80"
+                />
+                <span class="comment-author">
+                  <span v-if="comment.username">{{ comment.username }}</span>
+                  <span v-else>匿名用户: {{ comment.avatar }}</span>
                 </span>
               </div>
               <div class="comment-content">
@@ -133,37 +122,9 @@
                 <p>{{ comment.content }}</p>
                 <p></p>
               </div>
-              <div class="comment-meta">
-                <time class="comment-time">{{ comment.date }}</time>
-              </div>
-            </div>
-          </li>
-        </ol>
-        <div v-if="commentPages.totalPages > 1" class="lists-navigator">
-          <ol class="page-navigator">
-            <li v-if="commentPages.currentPage > 1" class="prev">
-              <a @click="toPage(commentPages.currentPage - 1)" href="#comments"
-                >←</a
-              >
-            </li>
-            <li
-              v-for="i in commentPages.totalPages"
-              :key="i"
-              :class="commentPages.currentNumber == i ? 'current' : ''"
-            >
-              <a @click="toPage(i)" href="#comments">{{ i }}</a>
-            </li>
-            comments
-            <li
-              v-if="commentPages.currentPage < commentPages.totalPages"
-              class="next"
-            >
-              <a @click="toPage(commentPages.currentPage + 1)" href="#comments"
-                >→</a
-              >
-            </li>
-          </ol>
-        </div>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
       </div>
     </div>
   </div>
