@@ -156,8 +156,12 @@ import { getTagList } from "../../../api/tag";
 import { Tag, ArticleDigest } from "../../../api/type/Article";
 import { mapGetters } from "vuex";
 import { Painting } from "../../../api/type/Painting";
+import { useMeta } from "vue-meta";
 
 export default defineComponent({
+  setup() {
+    useMeta({ title: "Home" });
+  },
   name: "overview",
   computed: {
     //...是把属性混入当前对象
@@ -289,6 +293,10 @@ export default defineComponent({
       let imgUrl =
         <string>import.meta.env.VITE_APP_BASE_API +
         <string>import.meta.env.VITE_IMG_URL;
+      if (import.meta.env.MODE == "production") {
+        // 不知道怎么回事,生产环境下无法识别环境文件,所以只能暂时这样写
+        imgUrl = "api/img";
+      }
       if (articleDigest.isPaintingCover) {
         return (
           "background-image:url(" +
@@ -307,6 +315,10 @@ export default defineComponent({
       let imgUrl =
         <string>import.meta.env.VITE_APP_BASE_API +
         <string>import.meta.env.VITE_IMG_URL;
+      if (import.meta.env.MODE == "production") {
+        // 不知道怎么回事,生产环境下无法识别环境文件,所以只能暂时这样写
+        imgUrl = "api/img";
+      }
       return imgUrl + "/painting/" + id + "?zoom=false";
     },
     checkIfMobile() {

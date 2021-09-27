@@ -87,13 +87,13 @@
             maxlength="12"
             class="form-control input-control clearfix"
             placeholder="Avator (*)"
-            required=""
+            required="true"
           />
           <textarea
             v-model="currentComment.content"
             class="form-control"
             placeholder="Your comment here. Be cool. "
-            required=""
+            required="true"
           ></textarea>
           <button type="button" class="submit" @click="submit">SUBMIT</button>
         </form>
@@ -136,7 +136,12 @@ import { getListForAbout, addComment } from "../../../api/comment";
 import { Comment } from "../../../api/type/Comment";
 import { ElMessageBox } from "element-plus";
 import { Page } from "../../../api/type/Response";
+import { useMeta } from "vue-meta";
+
 export default defineComponent({
+  setup() {
+    useMeta({ title: "About" });
+  },
   name: "about",
   data() {
     return {

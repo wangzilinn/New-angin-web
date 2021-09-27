@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="726508d3-6ac5-4668-b265-edfadb9ffb21" name="aliyun" url="http://zilinn.wang">
+        <fileTransfer rootFolder="/usr/share/nginx" accessType="SFTP" host="47.97.154.231" port="22" sshConfigId="7ba3faf8-5fe4-4ef5-9be3-ca607414a036" sshConfig="root@47.97.154.231:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

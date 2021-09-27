@@ -6,25 +6,32 @@
  * @LastEditTime: 2021-06-03 22:56:22
 -->
 <template>
-    <div id="app">
-        <router-view/>
-    </div>
+  <metainfo>
+    <template v-slot:title="{ content }">{{
+      content ? `${content} | Angin` : `Angin`
+    }}</template>
+  </metainfo>
+  <div id="app">
+    <router-view />
+  </div>
 </template>
 
 <script lang="ts">
-
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
+import { useMeta } from "vue-meta";
 
 export default defineComponent({
-    metaInfo: {
-    // 如果子component中没有定义 metaInfo.title ，会默认使用这个title
-    title: 'Angin',
-    meta: [
-      { name: 'description', content: '这是一个记录自己学习笔记的地方, 欢迎踩一踩' },
-      { name: 'keywords', content: '王子林,wangzilin,Angin,java,后端' }
-    ]
+  setup() {
+    useMeta({
+      title: "",
+      htmlAttrs: { lang: "en", amp: true },
+      meta: [
+        { name: "description", content: "这是一个记录自己学习笔记的地方" },
+        { name: "keywords", content: "王子林,wangzilin,Angin,java,后端" },
+      ],
+    });
   },
-  name: 'App'
-})
+  name: "App",
+});
 </script>
 

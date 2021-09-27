@@ -136,8 +136,12 @@ import "../../../styles/xcode.min.css";
 import { Article } from "../../../api/type/Article";
 import { Comment } from "../../../api/type/Comment";
 import { ElMessageBox } from "element-plus";
+import { useMeta } from "vue-meta";
 
 export default defineComponent({
+  setup() {
+    useMeta({ title: "Article" });
+  },
   name: "article",
   computed: {
     ...mapGetters({

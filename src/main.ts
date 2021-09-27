@@ -9,14 +9,15 @@ import { createApp } from "vue";
 import router from "./router";
 import ElementPlus from "element-plus";
 import { store, key } from "./store/index";
+import { createMetaManager } from 'vue-meta'
 
 import "element-plus/lib/theme-chalk/index.css";
 import "./styles/style.min.css";
 // 导入入口组件
 import App from "./App.vue";
-
 const app = createApp(App);
 app.use(router);
 app.use(ElementPlus);
 app.use(store, key);
+app.use(createMetaManager());
 app.mount("#app");
