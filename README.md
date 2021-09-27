@@ -1,10 +1,10 @@
-# New Angin web
+# Angin web
 
-尝试使用最新的前端技术栈:
+尝试使用最新的前端技术栈:**Vue 3 + Typescript + Vite**来重构前端界面.
 
-Vue 3 + Typescript + Vite
+已于 2021-09-27 16:11 重构完成
 
-来重构前端界面
+地址：[https://zilinn.wang](https://zilinn.wang)
 
 ## 界面展示
 
@@ -12,7 +12,7 @@ Vue 3 + Typescript + Vite
 
 ![article](./img/article.png)
 
-## Vue官方的vsc配置教程:
+## Vue 官方的 vsc 配置教程:
 
 This template should help get you started developing with Vue 3 and Typescript in Vite.
 
