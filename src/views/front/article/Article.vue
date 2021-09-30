@@ -369,7 +369,14 @@ export default defineComponent({
           directory.appendChild(root);
         };
         var articleDOM = document.getElementById("post-content");
+        let directoryDOM = document.getElementById("directory");
+        // Vue会复用之前页面的同名div,如果不先清空,会导致目录包含上一篇文章的目录
+        if (directoryDOM != null) {
+          directoryDOM.innerHTML = "";
+        }
         if (articleDOM !== null && articleDOM.children) {
+          // 创建之前先清空
+
           createPostDirectory(
             articleDOM,
             document.getElementById("directory"),
