@@ -357,6 +357,7 @@ export default defineComponent({
             dirNum[dirNum.length - 1]++;
             li = document.createElement("li");
             link = document.createElement("a");
+            // 在这里往a标签中插入了锚点,与hashHistory冲突
             link.href = "#" + titleId[i];
             link.innerHTML = !isDirNum
               ? contentArr[i]
