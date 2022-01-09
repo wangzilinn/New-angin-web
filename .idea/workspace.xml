@@ -2,19 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/views/easter_egg/LifeLog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1yUt8u8A6eajEzcbTn3oBS9yPsn" />
   <component name="ProjectViewState">
@@ -26,9 +37,11 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="ts.external.directory.path" value="D:\Case\210530_new_angin_web\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -38,6 +51,7 @@
       <setting name="parameters" value="" />
       <option name="PARENT_ENVS" value="true" />
       <setting name="workingDir" value="" />
+      <setting name="focusEditor" value="false" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -52,6 +66,7 @@
       <setting name="profiles" value="" />
       <setting name="aliases" value="" />
       <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="ClojureREPL" factoryName="Remote" activateToolWindowBeforeRun="false">
@@ -63,6 +78,7 @@
       <setting name="replPortFileType" value="STANDARD" />
       <setting name="customPortFile" value="" />
       <setting name="fixLineNumbers" value="false" />
+      <setting name="focusEditor" value="false" />
       <method v="2" />
     </configuration>
   </component>
@@ -80,10 +96,22 @@
       <workItem from="1632989650325" duration="121000" />
       <workItem from="1633003152501" duration="31000" />
       <workItem from="1635167643484" duration="893000" />
+      <workItem from="1641720836170" duration="794000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

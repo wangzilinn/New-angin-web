@@ -14,6 +14,7 @@ import FrontOverviewView from './views/front/overview/Overview.vue'
 import ArticleView from './views/front/article/Article.vue'
 import LoginView from './views/universal/login.vue'
 import About from './views/front/about/About.vue'
+import LifeLog from './views/private/LifeLog.vue'
 
 
 // 2. 定义一些路由
@@ -46,6 +47,10 @@ import About from './views/front/about/About.vue'
         path: '',
         component: ArticleView,
       }]
+    },
+    {
+      path:'/lifelog',
+      component: LifeLog,
     }
 
 ]
