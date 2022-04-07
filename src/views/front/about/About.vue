@@ -4,7 +4,7 @@
       <div class="post-header">
         <h1 class="post-title" itemprop="name headline">About</h1>
         <div class="post-data">
-          <time itemprop="datePublished">Published on 9 26, 2021</time>
+          <time itemprop="datePublished">Published on 4 3, 2022</time>
         </div>
       </div>
       <div id="post-content" class="post-content">
@@ -59,18 +59,26 @@
         <p>目前我的研究方向是NILM和工业互联网安全</p>
         <ul>
           <li>
-            Wang, Wei, <strong>Zilin Wang</strong>(contributed equally), Yanru
-            Chen, Min Guo, Zhengyu Chen, Yi Niu, Huangeng Liu, and Liangyin
-            Chen. "Bats: An Appliance Safety Hazards Factors Detection Algorithm
-            with an Improved Nonintrusive Load Disaggregation Method." Energies
-            14, no. 12 (2021): 3547.
+            <strong>Wang, Z.</strong>; Wang, W.; Zhang, Z.; Hu, F.; Xia, X.;
+            Chen, L. DeepEdge: A Novel Appliance Identification Edge Platform
+            for Data Gathering, Capturing and Labeling. Sensors 2022, 22, 2432.
+            https://doi.org/10.3390/s22072432
+          </li>
+          <li>
+            Wang, W.; <strong>Wang, Z.</strong>(contributed equally); Chen, Y.;
+            Guo, M.; Chen, Z.; Niu, Y.; Liu, H.; Chen, L. Bats: An Appliance
+            Safety Hazards Factors Detection Algorithm with an Improved
+            Nonintrusive Load Disaggregation Method. Energies 2021, 14, 3547.
+            https://doi.org/10.3390/en14123547
           </li>
         </ul>
         <h3>联系</h3>
         <ul>
           <li>
             <p>
-              <a href="https://github.com/wangzilinn" target="_blank">Github</a>
+              <a href="https://github.com/wangzilinn" target="_blank"
+                >Github:https://github.com/wangzilinn</a
+              >
             </p>
           </li>
           <li>Email: wangzilinn@gmail.com</li>

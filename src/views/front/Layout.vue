@@ -10,7 +10,24 @@
   <div>
     <header id="header" class="header bg-white">
       <div class="navbar-container">
-        <el-row :gutter="20" justify="center">
+        <el-row v-if="isMobile" justify="center">
+          <el-col :span="12">
+            <router-link class="navbar-logo" style="margin-top: -4%" to="/">
+              <img
+                src="../../assets/layout/logo.png"
+                alt="Het meisje met de parel"
+              />
+            </router-link>
+          </el-col>
+          <el-col :span="12">
+            <div style="text-align: center">
+              <router-link to="/about"
+                >关于我&nbsp;&nbsp;&nbsp;&nbsp;About</router-link
+              >
+            </div>
+          </el-col>
+        </el-row>
+        <el-row v-else :gutter="20" justify="center">
           <el-col :span="6">
             <router-link class="navbar-logo" to="/">
               <img
@@ -141,11 +158,12 @@ export default defineComponent({
     return {
       categoriesList: [] as Category[],
       contributionData: {},
-      showSearch: false,
       search: "",
+      isMobile: false,
     };
   },
   created() {
+    this.checkIfMobile();
     this.fetchData();
   },
   mounted() {
@@ -215,6 +233,19 @@ export default defineComponent({
       }
       // 如果点击了搜索,则跳转到首页:
       this.$router.push("/");
+    },
+    checkIfMobile() {
+      const flag = navigator.userAgent.match(
+        /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+      );
+
+      if (flag) {
+        this.isMobile = true;
+        return true;
+      } else {
+        this.isMobile = false;
+        return false;
+      }
     },
     // 画页面下方的字符
     initColorfulFooterText(): void {
