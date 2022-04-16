@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="增加个人记录页面">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/front/about/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/front/about/About.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +41,7 @@
     <property name="go.format.on.save.advertiser.fired" value="true" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../210516_shit_terminator" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -105,6 +105,8 @@
       <workItem from="1641720836170" duration="794000" />
       <workItem from="1641739012134" duration="224000" />
       <workItem from="1648020831139" duration="985000" />
+      <workItem from="1649333529713" duration="202000" />
+      <workItem from="1649420875490" duration="263000" />
     </task>
     <task id="LOCAL-00001" summary="增加个人记录页面">
       <created>1641739225398</created>
