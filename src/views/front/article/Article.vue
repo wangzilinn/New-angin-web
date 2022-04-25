@@ -360,7 +360,19 @@ export default defineComponent({
             li = document.createElement("li");
             link = document.createElement("a");
             // 在这里往a标签中插入了锚点,与hashHistory冲突
-            link.href = "#" + titleId[i];
+            // link.href = "#" + titleId[i];
+            link.href =
+              "javascript:window.scrollTo({top: document.getElementById(" +
+              "'" +
+              titleId[i] +
+              "'" +
+              ").getBoundingClientRect().top + window.pageYOffset - 90, behavior: 'smooth'});";
+            // link.href =
+            //   "javascript:document.getElementById(" +
+            //   "'" +
+            //   titleId[i] +
+            //   "'" +
+            //   ").scrollIntoView();";
             link.innerHTML = !isDirNum
               ? contentArr[i]
               : dirNum.join(".") + " " + contentArr[i];
@@ -375,8 +387,7 @@ export default defineComponent({
         let directoryDOM = document.getElementById("directory");
         // Vue会复用之前页面的同名div,如果不先清空,会导致目录包含上一篇文章的目录
         if (directoryDOM != null) {
-          directoryDOM.innerHTML =
-            "先不要点目录，目录锚点跳转和Vue的跳转冲突，</br>暂时还不知道怎么解决";
+          directoryDOM.innerHTML = "Table of Contents:";
         }
         if (articleDOM !== null && articleDOM.children) {
           // 创建之前先清空

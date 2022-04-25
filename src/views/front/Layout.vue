@@ -64,9 +64,7 @@
       <div class="footer-social">
         <div class="footer-container clearfix">
           <div class="social-list">
-            <a class="social rss" target="blank" href="https://zilinn.wang/"
-              >BLOG</a
-            >
+            You can find me here:
             <a
               class="social douban"
               target="blank"
@@ -79,6 +77,15 @@
               href="https://github.com/wangzilinn"
               >GITHUB</a
             >
+          </div>
+          <div class="social-list">
+            You CAN'T find me here:
+            <a
+              class="social rss"
+              target="blank"
+              href="https://joinmastodon.org/"
+              >MASTODON
+            </a>
           </div>
         </div>
       </div>
@@ -104,7 +111,10 @@
                     >Pinghsu</a
                   >
                 </p>
-                <p>© 2021 <a href="https://zilinn.wang/">Zillion Wang</a></p>
+                <p>
+                  © {{ new Date().getFullYear() }}
+                  <a href="https://zilinn.wang/">Zillion Wang</a>
+                </p>
                 <p>
                   <a href="http://www.beian.miit.gov.cn">蜀ICP备20012505号-1</a>
                 </p>

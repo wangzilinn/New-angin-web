@@ -2,9 +2,9 @@
   <div>
     <article class="main-content page-page">
       <div class="post-header">
-        <h1 class="post-title" itemprop="name headline">About</h1>
+        <h1 class="post-title" itemprop="name headline">About Me</h1>
         <div class="post-data">
-          <time itemprop="datePublished">Published on 4 3, 2022</time>
+          <time itemprop="datePublished">Published on 4 10, 2022</time>
         </div>
       </div>
       <div id="post-content" class="post-content">
@@ -14,6 +14,10 @@
           喜欢古典音乐,喜欢猫咪,<strong
             >很爱自己的女朋友,我们在一起已经{{ togetherDays }}天啦!</strong
           >
+        </p>
+        <p>
+          我本科阶段一直在嵌入式的坑里面挣扎, 忙于各种比赛,
+          研究生阶段转向了Java, 目前很快乐
         </p>
         <h3>关于Angin Blog</h3>
         <p>
@@ -43,26 +47,23 @@
         <h3>主要技术栈</h3>
         <ul>
           <li>Java,C</li>
-          <li>Spring boot</li>
+          <li>Spring</li>
           <li>MySQL</li>
           <li>MongoDB</li>
         </ul>
-        <h3>经历</h3>
+        <h3>实习经历</h3>
         <ul>
-          <li>阿里巴巴淘宝(中国)有限公司 用户增长(实习)</li>
+          <li>阿里巴巴 淘宝(中国)有限公司 淘系用户增长平台</li>
         </ul>
-        <h3>学术</h3>
-        <p>
-          本科阶段一直在嵌入式的坑里面挣扎, 忙于各种比赛, 研究生阶段转向了Java,
-          目前很快乐
-        </p>
+        <h3>学术与研究经历</h3>
         <p>目前我的研究方向是NILM和工业互联网安全</p>
+        <p>以下为已发表论文</p>
         <ul>
           <li>
-            <strong>Wang, Z.</strong>; Wang, W.; Zhang, Z.; Hu, F.; Xia, X.;
-            Chen, L. DeepEdge: A Novel Appliance Identification Edge Platform
-            for Data Gathering, Capturing and Labeling. Sensors 2022, 22, 2432.
-            https://doi.org/10.3390/s22072432
+            <strong>Wang, Z.</strong>; Wang, W.(contributed equally); Zhang, Z.;
+            Hu, F.; Xia, X.; Chen, L. DeepEdge: A Novel Appliance Identification
+            Edge Platform for Data Gathering, Capturing and Labeling. Sensors
+            2022, 22, 2432. https://doi.org/10.3390/s22072432
           </li>
           <li>
             Wang, W.; <strong>Wang, Z.</strong>(contributed equally); Chen, Y.;
@@ -72,16 +73,41 @@
             https://doi.org/10.3390/en14123547
           </li>
         </ul>
-        <h3>联系</h3>
+        <p>以下为已授权专利</p>
+        <ul>
+          <li>
+            王义斌, 潘江波, 安翠翠, 王柯力, 柏永华, <strong>王子林</strong>,
+            徐铭桂, and 杨琦. 一种隐藏式停车装置. CN201810674200.3, issued 2020.
+          </li>
+          <li>
+            王孟达, <strong>王子林</strong>, 萧海辉, 唐启阳, 向思铭, and 沈金荣.
+            一种泵站信息智能监测终端. CN207965594U, issued 2018.
+          </li>
+          <li>
+            沈金荣, 王浩宇, 向思铭, <strong>王子林</strong>, 惠杰, and 唐启阳.
+            基于激光雷达的避障转向装置、工作方法和无碳小车. CN107335227B, issued
+            2017.
+          </li>
+        </ul>
+
+        <h3>通过以下方式更多的了解我</h3>
         <ul>
           <li>
             <p>
+              Github:
               <a href="https://github.com/wangzilinn" target="_blank"
-                >Github:https://github.com/wangzilinn</a
+                >https://github.com/wangzilinn</a
               >
             </p>
           </li>
-          <li>Email: wangzilinn@gmail.com</li>
+          <li>
+            Resume:
+            <a href="https://zilinn.wang/download/resume.pdf">Download</a>
+          </li>
+          <li>
+            Email:
+            <a href="mailto:wangzilinn@gmail.com">wangzilinn@gmail.com</a>
+          </li>
         </ul>
       </div>
     </article>
