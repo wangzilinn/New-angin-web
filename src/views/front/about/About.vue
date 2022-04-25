@@ -4,93 +4,117 @@
       <div class="post-header">
         <h1 class="post-title" itemprop="name headline">About Me</h1>
         <div class="post-data">
-          <time itemprop="datePublished">Published on 4 10, 2022</time>
+          <time itemprop="datePublished">Updated on 4 25, 2022</time>
         </div>
       </div>
       <div id="post-content" class="post-content">
         <h3>Hello</h3>
-        <p>我是王子林(Zillion Wang), 四川大学计算机学院硕士研究生</p>
+        <p>我是王子林(Zillion Wang)，四川大学计算机学院硕士研究生</p>
         <p>
-          喜欢古典音乐,喜欢猫咪,<strong
-            >很爱自己的女朋友,我们在一起已经{{ togetherDays }}天啦!</strong
+          喜欢古典音乐，喜欢猫咪，<strong
+            >很爱自己的女朋友，我们在一起已经{{ togetherDays }}天啦！</strong
           >
         </p>
         <p>
-          我本科阶段一直在嵌入式的坑里面挣扎, 忙于各种比赛,
-          研究生阶段转向了Java, 目前很快乐
+          我本科阶段一直在嵌入式的坑里面挣扎，忙于各种比赛，
+          研究生阶段转向了Java，目前很快乐
         </p>
         <h3>关于Angin Blog</h3>
         <p>
-          Angin是自己和女朋友名字的拼音每一位都进行与运算后,
+          Angin是自己和女朋友名字的拼音每一位都进行与运算后，
           合并相同相邻字符得来的
         </p>
         <p>
           这个Blog是从<a href="https://github.com/TyCoding/tumo" target="_blank"
             >Tumo</a
-          >获得的灵感, 从头开始学Vue, 一点一点搭建而成的
+          >获得的灵感，从头开始学Vue，一点一点搭建而成的:
         </p>
-        <p>前端是Vue, 后端是Spring全家桶</p>
-        <p>
-          首页显示的图片是从<a href="https://artuk.org/">ArtUK</a
-          >中爬取的的4661张图片中随机选择的, 爬虫代码见<a
-            href="https://github.com/wangzilinn/Angin-backend"
-            >github</a
-          >
-        </p>
-        <p>
-          首页下方显示的github
-          map使用了修改后的github-contributions-canvas,其源码见<a
-            href="https://github.com/sallar/github-contributions-canvas"
-            >github</a
-          >
-        </p>
+        <ul>
+          <li>
+            前端基于Typescript + Vite + Vue3，源码见<a
+              href="https://github.com/wangzilinn/New-angin-web"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+          <li>
+            后端是Spring全家桶，源码见<a
+              href="https://github.com/wangzilinn/Angin-backend"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+        </ul>
+        <p>第三方资源:</p>
+        <ul>
+          <li>
+            首页显示的图片是从<a href="https://artuk.org/" target="_blank"
+              >ArtUK</a
+            >中爬取的的4661张图片中随机选择的，源码见<a
+              href="https://github.com/wangzilinn/Angin-backend"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+          <li>
+            每页下方显示的github heat map是修改后的Github Contributions on
+            Canvas， 源码见<a
+              href="https://github.com/sallar/github-contributions-canvas"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+        </ul>
         <h3>主要技术栈</h3>
         <ul>
-          <li>Java,C</li>
+          <li>Java，C，Python</li>
           <li>Spring</li>
-          <li>MySQL</li>
-          <li>MongoDB</li>
+          <li>MySQL，MongoDB</li>
         </ul>
         <h3>实习经历</h3>
         <ul>
-          <li>阿里巴巴 淘宝(中国)有限公司 淘系用户增长平台</li>
+          <li>阿里巴巴 淘宝(中国)有限公司 淘系用户增长平台 Java后端开发</li>
         </ul>
         <h3>学术与研究经历</h3>
         <p>目前我的研究方向是NILM和工业互联网安全</p>
-        <p>以下为已发表论文</p>
+        <p>以下为已发表论文:</p>
         <ul>
           <li>
             <strong>Wang, Z.</strong>; Wang, W.(contributed equally); Zhang, Z.;
             Hu, F.; Xia, X.; Chen, L. DeepEdge: A Novel Appliance Identification
             Edge Platform for Data Gathering, Capturing and Labeling. Sensors
-            2022, 22, 2432. https://doi.org/10.3390/s22072432
+            <strong>2022</strong>, 22, 2432.
+            https://doi.org/10.3390/s22072432<strong>(IF: 4.35)</strong>
           </li>
           <li>
             Wang, W.; <strong>Wang, Z.</strong>(contributed equally); Chen, Y.;
             Guo, M.; Chen, Z.; Niu, Y.; Liu, H.; Chen, L. Bats: An Appliance
             Safety Hazards Factors Detection Algorithm with an Improved
-            Nonintrusive Load Disaggregation Method. Energies 2021, 14, 3547.
-            https://doi.org/10.3390/en14123547
+            Nonintrusive Load Disaggregation Method. Energies
+            <strong>2021</strong>, 14, 3547.
+            https://doi.org/10.3390/en14123547<strong>(IF: 3.343)</strong>
           </li>
         </ul>
-        <p>以下为已授权专利</p>
+        <p>以下为已授权专利:</p>
         <ul>
           <li>
             王义斌, 潘江波, 安翠翠, 王柯力, 柏永华, <strong>王子林</strong>,
-            徐铭桂, and 杨琦. 一种隐藏式停车装置. CN201810674200.3, issued 2020.
+            徐铭桂, and 杨琦. 一种隐藏式停车装置. CN201810674200.3, issued
+            <strong>2020</strong>.
           </li>
           <li>
             王孟达, <strong>王子林</strong>, 萧海辉, 唐启阳, 向思铭, and 沈金荣.
-            一种泵站信息智能监测终端. CN207965594U, issued 2018.
+            一种泵站信息智能监测终端. CN207965594U, issued
+            <strong>2018</strong>.
           </li>
           <li>
             沈金荣, 王浩宇, 向思铭, <strong>王子林</strong>, 惠杰, and 唐启阳.
             基于激光雷达的避障转向装置、工作方法和无碳小车. CN107335227B, issued
-            2017.
+            <strong>2017</strong>.
           </li>
         </ul>
 
-        <h3>通过以下方式更多的了解我</h3>
+        <h3>通过以下方式更多的了解我:</h3>
         <ul>
           <li>
             <p>
@@ -101,12 +125,16 @@
             </p>
           </li>
           <li>
-            Resume:
-            <a href="https://zilinn.wang/download/resume.pdf">Download</a>
+            Résumé:
+            <a href="https://zilinn.wang/download/resume.pdf" target="_blank"
+              >Download</a
+            >
           </li>
           <li>
             Email:
-            <a href="mailto:wangzilinn@gmail.com">wangzilinn@gmail.com</a>
+            <a href="mailto:wangzilinn@gmail.com" target="_blank"
+              >wangzilinn@gmail.com</a
+            >
           </li>
         </ul>
       </div>

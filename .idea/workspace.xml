@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="增加个人记录页面">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/front/Layout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/front/Layout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/front/about/About.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/front/about/About.vue" afterDir="false" />
-    </list>
+    <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="解决了目录跳转与Vue锚点冲突的问题" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,6 +110,7 @@
       <workItem from="1650252416167" duration="348000" />
       <workItem from="1650461621454" duration="162000" />
       <workItem from="1650463780065" duration="175000" />
+      <workItem from="1650852534040" duration="159000" />
     </task>
     <task id="LOCAL-00001" summary="增加个人记录页面">
       <created>1641739225398</created>
@@ -122,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641739225398</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="解决了目录跳转与Vue锚点冲突的问题">
+      <created>1650852680630</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650852680630</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +145,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="增加个人记录页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加个人记录页面" />
+    <MESSAGE value="解决了目录跳转与Vue锚点冲突的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决了目录跳转与Vue锚点冲突的问题" />
   </component>
 </project>

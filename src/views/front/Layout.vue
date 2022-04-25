@@ -77,9 +77,9 @@
               href="https://github.com/wangzilinn"
               >GITHUB</a
             >
-          </div>
-          <div class="social-list">
-            You CAN'T find me here:
+
+            <br />
+            BUT you can't find me here:
             <a
               class="social rss"
               target="blank"
