@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="更新了about">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/lifeLog.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/lifeLog.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/api/type/LifeLog.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/type/LifeLog.d.ts" afterDir="false" />
-    </list>
+    <list default="true" id="a9ef52d7-b878-4fef-bbf5-f630e0251bf4" name="Changes" comment="新增了时间间隔统计，通过增加随机数解决重复提交不请求问题" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,6 +116,7 @@
       <workItem from="1651024123328" duration="428000" />
       <workItem from="1651027470381" duration="1548000" />
       <workItem from="1651111552940" duration="731000" />
+      <workItem from="1651411502319" duration="77000" />
     </task>
     <task id="LOCAL-00001" summary="增加个人记录页面">
       <created>1641739225398</created>
@@ -142,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650856247246</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="新增了时间间隔统计，通过增加随机数解决重复提交不请求问题">
+      <created>1651411567537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1651411567537</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +167,7 @@
     <MESSAGE value="增加个人记录页面" />
     <MESSAGE value="解决了目录跳转与Vue锚点冲突的问题" />
     <MESSAGE value="更新了about" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新了about" />
+    <MESSAGE value="新增了时间间隔统计，通过增加随机数解决重复提交不请求问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增了时间间隔统计，通过增加随机数解决重复提交不请求问题" />
   </component>
 </project>

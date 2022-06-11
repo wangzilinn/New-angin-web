@@ -45,7 +45,6 @@
           />
 
           <div id="directory"></div>
-
           <!--        <el-backtop id='test' target=".page-component__scroll .el-scrollbar__wrap"></el-backtop>-->
         </el-scrollbar>
       </el-col>
@@ -305,8 +304,10 @@ export default defineComponent({
             while (titleElem.length) {
               //shift()移除第一个元素
               elem = titleElem.shift();
-              //在word中自带的章节标题号需要被删掉:/^\d.* /
-              contentArr.push(elem.innerHTML.replace(/^\d.* /, ""));
+              //在word中自带的章节标题号需要被删掉:
+              // 删除以数字开头和以数字结尾的字符
+              // /^\d.*?\d /
+              contentArr.push(elem.innerHTML.replace(/^\d.*?\d /, ""));
               num = +elem.tagName.match(/\d/)[0];
               if (num > lastNum) {
                 levelArr.push(1);
