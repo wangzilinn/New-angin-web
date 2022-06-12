@@ -185,6 +185,7 @@ export default defineComponent({
     query: function (val, oldVal) {
       //layout进行了标题模糊查询
       console.log("watch query");
+      console.log(`old ${oldVal}`);
       console.log(`new ${val}`);
       if (val === undefined) {
         return;

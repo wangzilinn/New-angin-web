@@ -46,15 +46,20 @@
               placeholder="搜索或选择分类"
               @select="handleSelectCategoryOrQuery"
             ></el-autocomplete>
+            <el-button size="small" circle @click="openHelpNotification">
+              <el-icon><QuestionFilled /></el-icon>
+            </el-button>
           </el-col>
+
           <el-col :span="3">
             <div class="navbar-menu">
               <!-- name是登陆人的名字 -->
               <router-link to="" v-if="userName">{{ userName }}</router-link>
               <router-link to="/login" v-else>Login</router-link>
               <router-link to="/about">About</router-link>
-            </div></el-col
-          >
+              <a href="https://zilinn.wang/game">Game(Beta)</a>
+            </div>
+          </el-col>
         </el-row>
       </div>
     </header>
@@ -147,6 +152,9 @@
 
 
 <script lang="ts">
+import { h } from "vue";
+import { ElNotification } from "element-plus";
+import { QuestionFilled } from "@element-plus/icons-vue";
 import { defineComponent } from "vue";
 import { getGithubInfo } from "../../api/user";
 import { getCategoriesList } from "../../api/category";
@@ -159,6 +167,9 @@ import {
 
 export default defineComponent({
   name: "Layout",
+  components: {
+    QuestionFilled,
+  },
   computed: {
     ...mapGetters({
       userName: "getUserName",
@@ -207,6 +218,15 @@ export default defineComponent({
             footerText: "Made by @sallar - github-contributions.now.sh",
           }
         );
+      });
+    },
+    openHelpNotification() {
+      ElNotification({
+        title: "多功能搜索",
+        dangerouslyUseHTMLString: true,
+        type: "info",
+        message:
+          "<li>输入内容搜索文章，<strong>Enter</strong>键执行</li><li>下拉内容为文章分类，点击跳转</li></br>P.S.如果无响应请刷新页面",
       });
     },
     // 搜索框中输入内容时,对所有分类进行匹配
