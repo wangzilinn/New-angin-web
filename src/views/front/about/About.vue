@@ -4,7 +4,7 @@
       <div class="post-header">
         <h1 class="post-title" itemprop="name headline">About Me</h1>
         <div class="post-data">
-          <time itemprop="datePublished">Updated on 4 25, 2022</time>
+          <time itemprop="datePublished">Updated on 9 12, 2022</time>
         </div>
       </div>
       <div id="post-content" class="post-content">
@@ -71,9 +71,13 @@
           <li>Spring</li>
           <li>MySQL，MongoDB</li>
         </ul>
+        <h3>工作经历</h3>
+        <ul>
+          <li>淘宝(中国)有限公司 用户运营平台 Java后端开发</li>
+        </ul>
         <h3>实习经历</h3>
         <ul>
-          <li>阿里巴巴 淘宝(中国)有限公司 淘系用户增长平台 Java后端开发</li>
+          <li>淘宝(中国)有限公司 淘系用户增长平台 Java后端开发</li>
         </ul>
         <h3>学术与研究经历</h3>
         <p>目前我的研究方向是NILM和工业互联网安全</p>
